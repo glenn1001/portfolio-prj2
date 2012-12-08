@@ -1,0 +1,97 @@
+/*
+  Document   : style
+  Created on : 5-dec-2012, 9:04:52
+  Author     : Glenn Blom <glennblom@gmail.com>
+*/
+
+* { 
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: #F9F9F9;
+}
+
+#container {
+    margin: 0 auto;
+    min-width: 990px;
+    min-height: 500px;
+}
+
+#header_outer {
+    background: #1c4c7c;
+    min-height: 110px;
+}
+
+#header_inner {
+    width: 990px;
+    margin: 0 auto;
+    color: white;
+}
+
+#header_inner h1 {
+
+}
+
+div#nav {
+    position: relative;
+    top: 50px;
+    float: right;
+    width: auto;
+}
+
+div#nav ul li {
+    float: left;
+    list-style: none;
+    padding: 0px 10px;
+}
+
+div#slider_outer {
+    background: #082a46;
+    background: #E6E6E6;
+    min-height: 300px;
+}
+
+div#slider_inner {
+    width: 990px;
+    margin: 0 auto;
+}
+
+div#wowslider-container1 {
+    top: 10px;
+    position: relative;
+    width: 990px;
+}
+
+div#content_outer {
+    min-height: 635px;
+}
+
+div#content_inner {
+    width: 990px;
+    margin: 0 auto;
+}
+
+div#content_inner div {
+    float: left;
+    width: 260px;
+    margin: 10px 5px;
+    padding: 0 20px;
+}
+
+div#footer_outer {
+    min-height: 250px;
+    background: #082a46;
+    color: white;
+    font-size: 24px;
+}
+
+div#footer_inner {
+    width: 990px;
+    margin: 0 auto;
+}
+
+.clear {
+    clear: both;
+}
