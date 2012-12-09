@@ -13,7 +13,7 @@ class Plugin_LayoutCheck extends Zend_Controller_Plugin_Abstract {
         if (file_exists($layoutsDir . DIRECTORY_SEPARATOR . $module . ".phtml")) {
             $layout->setLayout($module);
         } else {
-            $layout->setLayout("layout");
+            $layout->setLayout("default");
         }
     }
 
