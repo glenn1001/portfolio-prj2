@@ -27,6 +27,19 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $front->registerPlugin(new Plugin_LayoutCheck());
         $front->registerPlugin(new Plugin_AccessCheck($this->_acl));
     }
+    
+    protected function _initErrorHandling() {
+        $front = Zend_Controller_Front::getInstance();
+        $front->registerPlugin(new Plugin_ErrorHandling());
+        
+        $registry = Zend_Registry::getInstance();
+        
+        $this->bootstrap('layout');
+        $layout = $this->getResource('layout');
+        $view = $layout->getView();
+        
+        $view->errorMsg = $registry->get('error');
+    }
 
 }
 
