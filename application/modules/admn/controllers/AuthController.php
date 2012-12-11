@@ -14,7 +14,7 @@ class Admn_AuthController extends Zend_Controller_Action {
         }
 
         $request = $this->getRequest();
-        $form = new Admn_Form_LoginForm();
+        $form = new Admn_Form_Login();
 
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {

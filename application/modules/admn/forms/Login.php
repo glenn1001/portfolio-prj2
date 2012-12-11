@@ -1,6 +1,6 @@
 <?php
 
-class Admn_Form_LoginForm extends Zend_Form {
+class Admn_Form_Login extends Zend_Form {
 
     public function __construct($option = null) {
         parent::__construct($option);
