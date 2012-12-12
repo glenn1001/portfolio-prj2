@@ -25,6 +25,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         // Access plugin
         $front = Zend_Controller_Front::getInstance();
         $front->registerPlugin(new Plugin_LayoutCheck());
+        $front->registerPlugin(new Plugin_UrlRewrite());
         $front->registerPlugin(new Plugin_AccessCheck($this->_acl));
     }
     
