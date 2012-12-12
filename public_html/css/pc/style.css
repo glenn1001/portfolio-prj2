@@ -13,6 +13,25 @@ body {
     background: #F9F9F9;
 }
 
+table {
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+table tr td {
+    border: 1px solid black;
+    padding: 2px 5px;
+}
+
+a:link, a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 #container {
     margin: 0 auto;
     min-width: 990px;
@@ -73,7 +92,7 @@ div#content_inner {
     margin: 0 auto;
 }
 
-div#content_inner div {
+div#content_inner div.box {
     float: left;
     width: 260px;
     margin: 10px 5px;
