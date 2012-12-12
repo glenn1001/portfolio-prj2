@@ -1,0 +1,51 @@
+<form id="pages" method="post" action="/admn/page/update/">
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Positie</td>
+            <td style="min-width: 120px;">Pagina</td>
+            <td style="min-width: 300px;">Pad</td>
+            <td>Status</td>
+            <td>Toon in menu</td>
+            <td>Voorbeeld</td>
+        </tr>
+        <?php
+        if (isset($this->pages[0])){
+            foreach ($this->pages as $page) {
+            ?>
+            <tr>
+                <td><input type="checkbox" name="delete[<?php echo $page->id; ?>]" value="Y" /></td>
+                <td><input type="text" size="3" name="update[<?php echo $page->id; ?>]" value="<?php echo $page->pos; ?>" /></td>
+                <td><a href="/admn/page/edit/id/<?php echo $page->id; ?>"><?php echo $page->title; ?></a></td>
+                <td>&nbsp;</td>
+                <td>
+                    <select name="status[<?php echo $page->id; ?>]">
+                        <option <?php if ($page->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Actief</option>
+                        <option <?php if ($page->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactief</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="menu[<?php echo $page->id; ?>]">
+                        <option <?php if ($page->menu == 'Y'){echo 'selected="selected"';} ?> value="Y">Ja</option>
+                        <option <?php if ($page->menu == 'N'){echo 'selected="selected"';} ?>value="N">Nee</option>
+                    </select>
+                </td>
+                <td><a href="<?php echo $page->canonical; ?>" target="_blank">Bekijk voorbeeld</a></td>
+            </tr>
+            <?php
+            }
+        } else {
+        ?>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="6">Er zijn op dit moment geen pagina's!</td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
+</form>
+<a href="javascript: void(0);" onclick="selectPages();">Selecteer alles</a> / <a href="javascript: void(0);" onclick="deSelectPages();">Deselecteer alles</a><br />
+<button onclick="deletePages();">Verwijder selectie</button>
+<button onclick="updatePos();">Update positie</button><br />
+<button onclick="addPage();">Voeg toe</button>
