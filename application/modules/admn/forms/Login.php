@@ -23,7 +23,7 @@ class Admn_Form_Login extends Zend_Form {
 
         $this->addElements(array($email, $password, $login));
         $this->setMethod('post');
-        $this->setAction(Zend_Controller_Front::getInstance()->getBaseUrl() . '/admn/auth/login');
+        $this->setAction(Zend_Controller_Front::getInstance()->getBaseUrl() . '/admn/auth/login/');
     }
 
 }
