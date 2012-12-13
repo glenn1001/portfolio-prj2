@@ -20,10 +20,10 @@ class Default_PageController extends Zend_Controller_Action {
         $page = $dbTablePage->fetchRow($dbTablePage->select()->where('id=' . $pageid));
 
         // check if object contains id
-        if (!isset($page->id)) {
+        if (!isset($page->id) || $page->status == 'N') {
             $error = new Zend_Session_Namespace('error');
             $error->msg = 'De pagina die u probeerde aan te roepen bestaat niet!';
-            $this->_redirect('/admn/page/');
+            $this->_redirect('/page-not-found/');
         }
         
         $this->view->headTitle($page->title, 'PREPEND');
