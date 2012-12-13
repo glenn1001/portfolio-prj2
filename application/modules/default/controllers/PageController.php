@@ -26,6 +26,20 @@ class Default_PageController extends Zend_Controller_Action {
             $this->_redirect('/admn/page/');
         }
         
+        $this->view->headTitle($page->title, 'PREPEND');
+        if ($page->meta_descr != '') {
+            $this->view->headMeta()->appendName('description', $page->meta_descr);
+        }
+        if ($page->meta_keywords != '') {
+            $this->view->headMeta()->appendName('keywords', $page->meta_keywords);
+        }
+        if ($page->canonical != '') {
+            $this->view->headLink(array(
+                'rel' => 'canonical',
+                'href' => 'http://' . $this->getRequest()->getHttpHost() . $page->canonical
+            ));
+        }
+        
         $this->view->pageinfo = $page;
     }
 

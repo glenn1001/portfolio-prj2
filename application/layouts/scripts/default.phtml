@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?= $this->head_info['title']; ?></title>
-        <meta charset="utf-8" />
-        <?php if (!empty($this->head_info['meta_description'])) { ?>
-            <meta name="description" content="<?= $this->head_info['meta_description']; ?>" />
-        <?php } ?>
-        <?php if (!empty($this->head_info['meta_keywords'])) { ?>
-            <meta name="keywords" content="<?= $this->head_info['meta_keywords']; ?>" />
-        <?php } ?>
+        <?php echo $this->headTitle(); ?>
 
-        <?php if (!empty($this->head_info['canonical'])) { ?>
-            <link rel="canonical" href="<?php echo $this->head_info['canonical']; ?>" />
-        <?php } ?>
+        <?php echo $this->headMeta(); ?>
 
-        <link rel="stylesheet" type="text/css" href="/css/pc/style.css" />
-        <script type="text/javascript" src="/js/main.js"></script>
-        <script type="text/javascript" src="/js/jquery-1.8.3.js"></script>
+
+        <?php echo $this->headLink()->appendStylesheet('/css/pc/style.css'); ?>
+
+
+        <?php
+        echo $this->headScript()->appendFile('/js/main.js')
+                ->appendFile('/js/jquery-1.8.3.js');
+        ?>
+
 
         <!-- Start WOWSlider.com HEAD section -->
         <link rel="stylesheet" type="text/css" href="/css/pc/slider/style.css" />
         <script type="text/javascript" src="/js/slider/jquery.js"></script>
         <!-- End WOWSlider.com HEAD section -->
-
     </head>
     <body>
         <div id="container">
