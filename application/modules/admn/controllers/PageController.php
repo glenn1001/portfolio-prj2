@@ -8,14 +8,17 @@ class Admn_PageController extends Zend_Controller_Action {
 
     public function indexAction() {
         $dbTablePage = new Default_Model_DbTable_Page();
-        $pages = $dbTablePage->fetchAll(null, 'pos ASC');
+        $pages = $dbTablePage->getPagesByParent();
 
         $this->view->pages = $pages;
     }
 
     public function createAction() {
+        $dbTablePage = new Default_Model_DbTable_Page();
+        $pages = $dbTablePage->getPagesByParent();
+        
         $request = $this->getRequest();
-        $form = new Admn_Form_Page('Voeg toe');
+        $form = new Admn_Form_Page('Voeg toe', $pages);
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
                 $data = $form->getValues();
@@ -27,7 +30,11 @@ class Admn_PageController extends Zend_Controller_Action {
                 // check if position is set, if not then set this position to the highest position + 10
                 if ($data['pos'] == '') {
                     $pages = $dbTablePage->fetchAll(null, 'pos DESC');
-                    $data['pos'] = $pages[0]->pos + 10;
+                    if (isset($pages[0])) {
+                        $data['pos'] = $pages[0]->pos + 10;
+                    } else {
+                        $data['pos'] = 10;
+                    }
                 }
 
                 $dbTablePage->insert($data);
@@ -56,16 +63,18 @@ class Admn_PageController extends Zend_Controller_Action {
             $error->msg = 'De pagina die je probeerde aan te passen bestaat niet!';
             $this->_redirect('/admn/page/');
         }
+        
+        $pages = $dbTablePage->getPagesByParent();
 
         $request = $this->getRequest();
-        $form = new Admn_Form_Page('Bijwerkern', $page);
+        $form = new Admn_Form_Page('Bijwerkern', $pages, $page);
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
                 $data = $form->getValues();
                 $data['date_modified'] = date('Y-m-d H:i:s');
 
                 $dbTablePage = new Default_Model_DbTable_Page();
-                $dbTablePage->update($data, $pageid);
+                $dbTablePage->update($data, "`id`='$pageid'");
                 $this->_redirect('/admn/page/');
             }
         }
