@@ -17,7 +17,7 @@
                 <td><input type="checkbox" name="delete[<?php echo $page->id; ?>]" value="Y" /></td>
                 <td><input type="text" size="3" name="update[<?php echo $page->id; ?>]" value="<?php echo $page->pos; ?>" /></td>
                 <td><a href="/admn/page/edit/id/<?php echo $page->id; ?>"><?php echo $page->title; ?></a></td>
-                <td>&nbsp;</td>
+                <td><?php echo $page->path; ?></td>
                 <td>
                     <select name="status[<?php echo $page->id; ?>]">
                         <option <?php if ($page->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Actief</option>
