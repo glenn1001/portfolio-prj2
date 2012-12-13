@@ -39,10 +39,10 @@ class Plugin_UrlRewrite extends Zend_Controller_Plugin_Abstract {
             $parameters = $request->getParams();
             ksort($parameters);
 
-            $url_rewrite = $dbTableUrlRewrite->fetchRow($dbTableUrlRewrite->select()->where("`module`='$module' AND `controller`='$controller' AND `action`='$action'"));
-
+            $url_rewrites = $dbTableUrlRewrite->fetchAll($dbTableUrlRewrite->select()->where("`module`='$module' AND `controller`='$controller' AND `action`='$action'"));
+            
             // check if current url can be rewritten
-            if (!empty($url_rewrite)) {
+            foreach ($url_rewrites as $url_rewrite) {
                 $dbParameters = $dbTableUrlRewriteParameter->fetchAll("`id`='" . $url_rewrite->id . "'");
                 $tmpArray = array(
                     'module' => $module,
