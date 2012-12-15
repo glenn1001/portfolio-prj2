@@ -10,6 +10,21 @@
     font-family: verdana, sans-serif;
 }
 
+input[type="submit"], a.button, button {
+    display: inline-block;
+    border-style: outset;
+    cursor: pointer;
+    border-width: 2px;
+    padding: 3px 15px;
+    background: #1C4C7C;
+    color: white;
+    font-size: 12px;
+}
+
+input[type="submit"]:active, a.button:active, button:active {
+    border-style: inset;
+}
+
 div#nav {
     width: auto;
 }

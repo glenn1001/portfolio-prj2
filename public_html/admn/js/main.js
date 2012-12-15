@@ -1,7 +1,3 @@
-function addProject() {
-    window.location = '/admn/project/create/';
-}
-
 function deleteProjects() {
     var form = document.getElementById('projects');
     form.action = '/admn/project/delete/';
@@ -12,10 +8,6 @@ function updateProjectPos() {
     var form = document.getElementById('projects');
     form.action = '/admn/project/update/';
     form.submit();
-}
-
-function addPage() {
-    window.location = '/admn/page/create/';
 }
 
 function deletePages() {

@@ -17,7 +17,7 @@
                 <td><input type="checkbox" name="delete[<?php echo $project->id; ?>]" value="Y" /></td>
                 <td><img src="/img/pc/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" style="width: 100px;" /></td>
                 <td><input type="text" size="3" name="update[<?php echo $project->id; ?>]" value="<?php echo $project->pos; ?>" /></td>
-                <td><a href="/admn/project/edit/id/<?php echo $project->id; ?>"><?php echo $project->title; ?></a></td>
+                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $project->id)); ?>/"><?php echo $project->title; ?></a></td>
                 <td>
                     <select name="status[<?php echo $project->id; ?>]">
                         <option <?php if ($project->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Active</option>
@@ -48,4 +48,4 @@
 <a href="javascript: void(0);" onclick="selectProjects();">Select all</a> / <a href="javascript: void(0);" onclick="deSelectProjects();">Deselect all</a><br />
 <button onclick="deleteProjects();">Delete selected</button>
 <button onclick="updateProjectPos();">Update all</button><br />
-<button onclick="addProject();">Add new project</button>
+<a href="<?php echo $this->url(array('action' => 'create')); ?>/" class="button">Add new project</a>

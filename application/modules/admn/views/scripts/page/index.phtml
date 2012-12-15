@@ -16,7 +16,7 @@
             <tr>
                 <td><input type="checkbox" name="delete[<?php echo $page->id; ?>]" value="Y" /></td>
                 <td><input type="text" size="3" name="update[<?php echo $page->id; ?>]" value="<?php echo $page->pos; ?>" /></td>
-                <td><a href="/admn/page/edit/id/<?php echo $page->id; ?>"><?php echo $page->title; ?></a></td>
+                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $page->id)); ?>/"><?php echo $page->title; ?></a></td>
                 <td><?php echo $page->path; ?></td>
                 <td>
                     <select name="status[<?php echo $page->id; ?>]">
@@ -48,4 +48,4 @@
 <a href="javascript: void(0);" onclick="selectPages();">Select all</a> / <a href="javascript: void(0);" onclick="deSelectPages();">Deselect all</a><br />
 <button onclick="deletePages();">Delete selected</button>
 <button onclick="updatePagePos();">Update all</button><br />
-<button onclick="addPage();">Add new page</button>
+<a href="<?php echo $this->url(array('action' => 'create')); ?>/" class="button">Add new page</a>
