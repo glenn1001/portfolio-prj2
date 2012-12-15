@@ -10,6 +10,16 @@
     font-family: verdana, sans-serif;
 }
 
+div#nav {
+    width: auto;
+}
+
+div#nav ul li {
+    float: left;
+    list-style: none;
+    padding: 0px 10px;
+}
+
 .clear {
     clear: both;
 }

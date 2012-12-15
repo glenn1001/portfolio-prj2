@@ -93,6 +93,10 @@ div#content_inner {
     margin: 0 auto;
 }
 
+div#content_inner a {
+    color: black;
+}
+
 div#content_inner div.box {
     float: left;
     width: 260px;
