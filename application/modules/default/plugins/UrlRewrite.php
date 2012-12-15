@@ -25,7 +25,7 @@ class Plugin_UrlRewrite extends Zend_Controller_Plugin_Abstract {
             $request->setActionName($url_rewrite->action);
 
             // get parameters
-            $parameters = $dbTableUrlRewriteParameter->fetchAll("`id`='" . $url_rewrite->id . "'");
+            $parameters = $dbTableUrlRewriteParameter->fetchAll("`url_rewrite_id`='" . $url_rewrite->id . "'");
 
             // set parameters
             foreach ($parameters as $parameter) {
@@ -43,7 +43,7 @@ class Plugin_UrlRewrite extends Zend_Controller_Plugin_Abstract {
             
             // check if current url can be rewritten
             foreach ($url_rewrites as $url_rewrite) {
-                $dbParameters = $dbTableUrlRewriteParameter->fetchAll("`id`='" . $url_rewrite->id . "'");
+                $dbParameters = $dbTableUrlRewriteParameter->fetchAll("`url_rewrite_id`='" . $url_rewrite->id . "'");
                 $tmpArray = array(
                     'module' => $module,
                     'controller' => $controller,
