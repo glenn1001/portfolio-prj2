@@ -17,14 +17,6 @@
             <action>index</action>
             <resource>admn:project</resource>
             <privilege>index</privilege>
-            <pages>
-                <create>
-                    <label>Create project</label>
-                    <module>admn</module>
-                    <controller>project</controller>
-                    <action>create</action>
-                </create>
-            </pages>
         </project>
         
         <page>
@@ -34,14 +26,6 @@
             <action>index</action>
             <resource>admn:page</resource>
             <privilege>index</privilege>
-            <pages>
-                <create>
-                    <label>Create page</label>
-                    <module>admn</module>
-                    <controller>page</controller>
-                    <action>create</action>
-                </create>
-            </pages>
         </page>
         
         <url>
@@ -51,14 +35,6 @@
             <action>index</action>
             <resource>admn:url</resource>
             <privilege>index</privilege>
-            <pages>
-                <create>
-                    <label>Generate URL rewrites</label>
-                    <module>admn</module>
-                    <controller>url</controller>
-                    <action>generate</action>
-                </create>
-            </pages>
         </url>
         
         <logout>
