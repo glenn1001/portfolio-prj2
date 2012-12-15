@@ -37,6 +37,15 @@
             <privilege>index</privilege>
         </url>
         
+        <xml>
+            <label>Generate XML</label>
+            <module>admn</module>
+            <controller>xml</controller>
+            <action>index</action>
+            <resource>admn:xml</resource>
+            <privilege>index</privilege>
+        </xml>
+        
         <logout>
             <label>Logout</label>
             <module>admn</module>
