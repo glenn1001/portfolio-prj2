@@ -26,6 +26,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $front = Zend_Controller_Front::getInstance();
         $front->registerPlugin(new Plugin_LayoutCheck());
         $front->registerPlugin(new Plugin_UrlRewrite());
+        $front->registerPlugin(new Plugin_Navigation());
         $front->registerPlugin(new Plugin_AccessCheck($this->_acl));
     }
     
@@ -52,6 +53,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         
         $view->headTitle()->setSeparator(' - ');
         $view->headTitle('Portfolio - Glenn Blom');
+    }
+    
+    protected function _initSetToRegistry() {
+        $this->bootstrap('layout');
+        $layout = $this->getResource('layout');
+        $view = $layout->getView();
+        
+        $registry = Zend_Registry::getInstance();
+        $registry->set('acl', $this->_acl);
+        $registry->set('view', $view);
     }
 
 }

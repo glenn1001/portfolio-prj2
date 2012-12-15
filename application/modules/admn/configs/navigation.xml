@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <nav>
+        <home>
+            <label>Home</label>
+            <module>admn</module>
+            <controller>index</controller>
+            <action>index</action>
+            <resource>admn:index</resource>
+            <privilege>index</privilege>
+        </home>
+        
+        <page>
+            <label>Pages</label>
+            <module>admn</module>
+            <controller>page</controller>
+            <action>index</action>
+            <resource>admn:page</resource>
+            <privilege>index</privilege>
+            <pages>
+                <create>
+                    <label>Create page</label>
+                    <module>admn</module>
+                    <controller>page</controller>
+                    <action>create</action>
+                </create>
+            </pages>
+        </page>
+        
+        <logout>
+            <label>Logout</label>
+            <module>admn</module>
+            <controller>auth</controller>
+            <action>logout</action>
+            <resource>admn:auth</resource>
+            <privilege>logout</privilege>
+        </logout>
+    </nav>
+</config>

@@ -23,13 +23,19 @@
     </head>
     <body>
         <div id="container">
-            <?php if ($this->errorMsg != '') {
-            ?>
-            <div id="error"><?php echo $this->errorMsg; ?></div>
-            <?php
-            }
-            ?>
-            <?= $this->layout()->content; ?>
+            <div id="nav">
+                <?php echo $this->navigation(); ?>
+            </div>
+            <div class="clear"></div>
+            <div id="content">
+                <?php if ($this->errorMsg != '') {
+                ?>
+                <div id="error"><?php echo $this->errorMsg; ?></div>
+                <?php
+                }
+                ?>
+                <?= $this->layout()->content; ?>
+            </div>
         </div>
     </body>
 </html>

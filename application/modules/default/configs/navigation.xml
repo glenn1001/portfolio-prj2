@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <nav>
+        <home>
+            <label>Home</label>
+            <module>default</module>
+            <controller>index</controller>
+            <action>index</action>
+            <resource>default:index</resource>
+            <privilege>index</privilege>
+        </home>
+        
+        <projecten>
+            <label>Projecten</label>
+            <uri>/projecten/</uri>
+            <resource>default:page</resource>
+            <privilege>index</privilege>
+        </projecten>
+        
+        <kennis>
+            <label>Kennis &amp; vaardigheden</label>
+            <uri>/kennis-vaardigheden/</uri>
+            <resource>default:page</resource>
+            <privilege>index</privilege>
+        </kennis>
+        
+        <cv>
+            <label>Curriculum Vitae</label>
+            <uri>/cv/</uri>
+            <resource>default:page</resource>
+            <privilege>index</privilege>
+        </cv>
+    </nav>
+</config>
