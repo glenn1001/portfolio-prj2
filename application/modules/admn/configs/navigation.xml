@@ -44,6 +44,23 @@
             </pages>
         </page>
         
+        <url>
+            <label>URL rewrites</label>
+            <module>admn</module>
+            <controller>url</controller>
+            <action>index</action>
+            <resource>admn:url</resource>
+            <privilege>index</privilege>
+            <pages>
+                <create>
+                    <label>Generate URL rewrites</label>
+                    <module>admn</module>
+                    <controller>url</controller>
+                    <action>generate</action>
+                </create>
+            </pages>
+        </url>
+        
         <logout>
             <label>Logout</label>
             <module>admn</module>

@@ -18,7 +18,8 @@ class Model_Acl extends Zend_Acl {
                 ->add(new Zend_Acl_Resource('admn:index'), 'admn')
                 ->add(new Zend_Acl_Resource('admn:auth'), 'admn')
                 ->add(new Zend_Acl_Resource('admn:project'), 'admn')
-                ->add(new Zend_Acl_Resource('admn:page'), 'admn');
+                ->add(new Zend_Acl_Resource('admn:page'), 'admn')
+                ->add(new Zend_Acl_Resource('admn:url'), 'admn');
         
         $this->allow('guest', 'default:index', 'index');
         $this->allow('guest', 'default:error', 'error');
@@ -36,6 +37,7 @@ class Model_Acl extends Zend_Acl {
         $this->allow('admin', 'admn:auth', 'logout');
         $this->allow('admin', 'admn:project', array('index','create','edit','delete','update'));
         $this->allow('admin', 'admn:page', array('index','create','edit','delete','update'));
+        $this->allow('admin', 'admn:url', array('index','generate'));
     }
 
 }

@@ -1,0 +1,33 @@
+<table>
+    <tr>
+        <td>ID</td>
+        <td>URL</td>
+        <td>Module</td>
+        <td>Controller</td>
+        <td>Action</td>
+        <td>Generated</td>
+        <td>Paremeters</td>
+    </tr>
+    <?php
+    foreach ($this->urlRewrites as $urlRewrite) {
+    ?>
+    <tr>
+        <td><?php echo $urlRewrite->id; ?></td>
+        <td><?php echo $urlRewrite->url; ?></td>
+        <td><?php echo $urlRewrite->module; ?></td>
+        <td><?php echo $urlRewrite->controller; ?></td>
+        <td><?php echo $urlRewrite->action; ?></td>
+        <td><?php echo $urlRewrite->generated; ?></td>
+        <td>
+        <?php
+        foreach ($urlRewrite->parameters as $parameter) {
+            echo $parameter->key . ' = ' .  $parameter->value . '<br />';
+        }
+        ?>
+        </td>
+    </tr>
+    <?php
+    }
+    ?>
+</table>
+<button>Generate</button>

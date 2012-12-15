@@ -123,6 +123,10 @@
               <actionMethod actionName="delete"/>
               <actionMethod actionName="update"/>
             </controllerFile>
+            <controllerFile controllerName="Url">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="generate"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false">
             <formFile formName="Login"/>
@@ -169,6 +173,12 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Project">
                 <viewScriptFile forActionName="update"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Url">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Url">
+                <viewScriptFile forActionName="generate"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>
