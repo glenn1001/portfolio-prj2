@@ -1,0 +1,13 @@
+<div id="content_inner">
+    <?php
+    foreach ($this->projects as $project) {
+    ?>
+    <div>
+        <img src="/img/pc/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" /><br />
+        <?php echo $project->title; ?><br />
+        <?php echo $project->meta_descr; ?> <a href="/projecten/<?php echo $project->canonical; ?>">[Read more ...]</a>
+    </div>
+    <?php
+    }
+    ?>
+</div>

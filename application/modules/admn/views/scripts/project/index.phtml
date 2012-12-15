@@ -1,0 +1,51 @@
+<form id="projects" method="post" action="/admn/project/update/">
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Image</td>
+            <td>Position</td>
+            <td style="min-width: 120px;">Project</td>
+            <td>Status</td>
+            <td>Show in navigation</td>
+            <td>Example</td>
+        </tr>
+        <?php
+        if (isset($this->projects[0])){
+            foreach ($this->projects as $project) {
+            ?>
+            <tr>
+                <td><input type="checkbox" name="delete[<?php echo $project->id; ?>]" value="Y" /></td>
+                <td><img src="/img/pc/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" style="width: 100px;" /></td>
+                <td><input type="text" size="3" name="update[<?php echo $project->id; ?>]" value="<?php echo $project->pos; ?>" /></td>
+                <td><a href="/admn/project/edit/id/<?php echo $project->id; ?>"><?php echo $project->title; ?></a></td>
+                <td>
+                    <select name="status[<?php echo $project->id; ?>]">
+                        <option <?php if ($project->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Active</option>
+                        <option <?php if ($project->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactive</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="menu[<?php echo $project->id; ?>]">
+                        <option <?php if ($project->menu == 'Y'){echo 'selected="selected"';} ?> value="Y">Yes</option>
+                        <option <?php if ($project->menu == 'N'){echo 'selected="selected"';} ?>value="N">No</option>
+                    </select>
+                </td>
+                <td><a href="/projecten<?php echo $project->canonical; ?>" target="_blank">View example</a></td>
+            </tr>
+            <?php
+            }
+        } else {
+        ?>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="6">There are no projects!</td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
+</form>
+<a href="javascript: void(0);" onclick="selectProjects();">Select all</a> / <a href="javascript: void(0);" onclick="deSelectProjects();">Deselect all</a><br />
+<button onclick="deleteProjects();">Delete selected</button>
+<button onclick="updateProjectPos();">Update all</button><br />
+<button onclick="addProject();">Add new project</button>

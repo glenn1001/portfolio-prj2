@@ -10,6 +10,23 @@
             <privilege>index</privilege>
         </home>
         
+        <project>
+            <label>Projects</label>
+            <module>admn</module>
+            <controller>project</controller>
+            <action>index</action>
+            <resource>admn:project</resource>
+            <privilege>index</privilege>
+            <pages>
+                <create>
+                    <label>Create project</label>
+                    <module>admn</module>
+                    <controller>project</controller>
+                    <action>create</action>
+                </create>
+            </pages>
+        </project>
+        
         <page>
             <label>Pages</label>
             <module>admn</module>

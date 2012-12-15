@@ -62,6 +62,10 @@
             <controllerFile controllerName="Page">
               <actionMethod actionName="index"/>
             </controllerFile>
+            <controllerFile controllerName="Project">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="view"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false"/>
@@ -69,6 +73,7 @@
             <dbTableDirectory>
               <dbTableFile dbTableName="User"/>
               <dbTableFile dbTableName="Page"/>
+              <dbTableFile dbTableName="Project"/>
             </dbTableDirectory>
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
@@ -85,6 +90,12 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Page">
                 <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Project">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Project">
+                <viewScriptFile forActionName="view"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>
@@ -105,10 +116,18 @@
               <actionMethod actionName="delete"/>
               <actionMethod actionName="updatepos"/>
             </controllerFile>
+            <controllerFile controllerName="Project">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="create"/>
+              <actionMethod actionName="edit"/>
+              <actionMethod actionName="delete"/>
+              <actionMethod actionName="update"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false">
             <formFile formName="Login"/>
             <formFile formName="Page"/>
+            <formFile formName="Project"/>
           </formsDirectory>
           <layoutsDirectory enabled="false"/>
           <modelsDirectory/>
@@ -135,6 +154,21 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Page">
                 <viewScriptFile forActionName="updatepos"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Project">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Project">
+                <viewScriptFile forActionName="create"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Project">
+                <viewScriptFile forActionName="edit"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Project">
+                <viewScriptFile forActionName="delete"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Project">
+                <viewScriptFile forActionName="update"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

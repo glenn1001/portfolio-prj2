@@ -1,3 +1,19 @@
+function addProject() {
+    window.location = '/admn/project/create/';
+}
+
+function deleteProjects() {
+    var form = document.getElementById('projects');
+    form.action = '/admn/project/delete/';
+    form.submit();
+}
+
+function updateProjectPos() {
+    var form = document.getElementById('projects');
+    form.action = '/admn/project/update/';
+    form.submit();
+}
+
 function addPage() {
     window.location = '/admn/page/create/';
 }
@@ -8,7 +24,7 @@ function deletePages() {
     form.submit();
 }
 
-function updatePos() {
+function updatePagePos() {
     var form = document.getElementById('pages');
     form.action = '/admn/page/update/';
     form.submit();
