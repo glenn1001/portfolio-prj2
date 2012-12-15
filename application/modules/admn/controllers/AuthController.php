@@ -7,10 +7,8 @@ class Admn_AuthController extends Zend_Controller_Action {
     }
 
     public function loginAction() {
-        $this->view->title = 'Login';
-
         if (Zend_Auth::getInstance()->hasIdentity()) {
-            $this->_redirect('index/index');
+            $this->_redirect('/admn/');
         }
 
         $request = $this->getRequest();
@@ -47,7 +45,7 @@ class Admn_AuthController extends Zend_Controller_Action {
 
     public function logoutAction() {
         Zend_Auth::getInstance()->clearIdentity();
-        $this->_redirect('/admn/auth/login');
+        $this->_redirect('/admn/auth/login/');
     }
 
     private function getAuthAdapter() {
