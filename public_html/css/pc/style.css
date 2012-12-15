@@ -56,16 +56,49 @@ a:hover {
 
 div#nav {
     position: relative;
-    top: 50px;
-    float: right;
+    top: 20px;
+    float: left;
     width: auto;
+    z-index: 110;
 }
 
 div#nav ul li {
     float: left;
     list-style: none;
-    padding: 0px 10px;
 }
+
+div#nav ul li a {
+    display: inline-block;
+    padding: 5px 20px 20px 0px;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+}
+
+div#nav ul li ul {
+    display: none;
+    position: absolute;
+    margin-left: -15px; 
+    width: auto;
+    background: #256aa1;
+    border: 1px solid #EDEDED;
+    -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 1px 2px 8px rgba(0, 0, 0, .4);
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, .4);
+}
+
+div#nav ul li ul li {
+    float: none;
+}
+
+div#nav ul li ul li:hover {
+    background: #20598c !important;
+}
+
+div#nav ul li ul li a {
+    padding: 5px 15px;
+    background: none !important;
+}
+
 
 div#slider_outer {
     background: #082a46;

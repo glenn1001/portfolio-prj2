@@ -15,6 +15,20 @@
             <uri>/projecten/</uri>
             <resource>default:page</resource>
             <privilege>index</privilege>
+            <pages>
+                <cheapest>
+                    <label>Cheapest Consoles</label>
+                    <uri>/projecten/cheapest-consoles/</uri>
+                    <resource>default:page</resource>
+                    <privilege>index</privilege>
+                </cheapest>
+                <ancient>
+                    <label>The Ancient Tale of Rijanka</label>
+                    <uri>/projecten/the-ancient-tale-of-rijanka/</uri>
+                    <resource>default:page</resource>
+                    <privilege>index</privilege>
+                </ancient>
+            </pages>
         </projecten>
         
         <kennis>
