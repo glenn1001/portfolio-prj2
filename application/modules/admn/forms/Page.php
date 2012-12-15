@@ -13,7 +13,7 @@ class Admn_Form_Page extends Zend_Form {
     private $_status_value = '';
     private $_menu_value = '';
 
-    public function setValues($data) {
+    private function setValues($data) {
         $this->_id_value = $data->id;
         $this->_title_value = $data->title;
         $this->_parent_id_value = $data->parent_id;
