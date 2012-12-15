@@ -18,7 +18,7 @@ class Admn_PageController extends Zend_Controller_Action {
         $pages = $dbTablePage->getPagesByParent();
         
         $request = $this->getRequest();
-        $form = new Admn_Form_Page('Voeg toe', $pages);
+        $form = new Admn_Form_Page('Add', $pages);
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
                 $data = $form->getValues();
@@ -49,7 +49,7 @@ class Admn_PageController extends Zend_Controller_Action {
         $pageid = $this->_getParam('id', false);
         if ($pageid == false) {
             $error = new Zend_Session_Namespace('error');
-            $error->msg = 'Er is geen id meegestuurd als parameter!';
+            $error->msg = "Parameter 'id' is missing!";
             $this->_redirect('/admn/page/');
         }
         
@@ -60,14 +60,14 @@ class Admn_PageController extends Zend_Controller_Action {
         // check if object contains id
         if (!isset($page->id)) {
             $error = new Zend_Session_Namespace('error');
-            $error->msg = 'De pagina die je probeerde aan te passen bestaat niet!';
+            $error->msg = "This page doesn't exists!";
             $this->_redirect('/admn/page/');
         }
         
         $pages = $dbTablePage->getPagesByParent();
 
         $request = $this->getRequest();
-        $form = new Admn_Form_Page('Bijwerkern', $pages, $page);
+        $form = new Admn_Form_Page('Update', $pages, $page);
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
                 $data = $form->getValues();

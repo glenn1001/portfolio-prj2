@@ -2,12 +2,12 @@
     <table>
         <tr>
             <td>&nbsp;</td>
-            <td>Positie</td>
-            <td style="min-width: 120px;">Pagina</td>
-            <td style="min-width: 300px;">Pad</td>
+            <td>Position</td>
+            <td style="min-width: 120px;">Page</td>
+            <td style="min-width: 300px;">Path</td>
             <td>Status</td>
-            <td>Toon in menu</td>
-            <td>Voorbeeld</td>
+            <td>Show in navigation</td>
+            <td>Example</td>
         </tr>
         <?php
         if (isset($this->pages[0])){
@@ -20,17 +20,17 @@
                 <td><?php echo $page->path; ?></td>
                 <td>
                     <select name="status[<?php echo $page->id; ?>]">
-                        <option <?php if ($page->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Actief</option>
-                        <option <?php if ($page->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactief</option>
+                        <option <?php if ($page->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Active</option>
+                        <option <?php if ($page->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactive</option>
                     </select>
                 </td>
                 <td>
                     <select name="menu[<?php echo $page->id; ?>]">
-                        <option <?php if ($page->menu == 'Y'){echo 'selected="selected"';} ?> value="Y">Ja</option>
-                        <option <?php if ($page->menu == 'N'){echo 'selected="selected"';} ?>value="N">Nee</option>
+                        <option <?php if ($page->menu == 'Y'){echo 'selected="selected"';} ?> value="Y">Yes</option>
+                        <option <?php if ($page->menu == 'N'){echo 'selected="selected"';} ?>value="N">No</option>
                     </select>
                 </td>
-                <td><a href="<?php echo $page->canonical; ?>" target="_blank">Bekijk voorbeeld</a></td>
+                <td><a href="<?php echo $page->canonical; ?>" target="_blank">View example</a></td>
             </tr>
             <?php
             }
@@ -45,7 +45,7 @@
         ?>
     </table>
 </form>
-<a href="javascript: void(0);" onclick="selectPages();">Selecteer alles</a> / <a href="javascript: void(0);" onclick="deSelectPages();">Deselecteer alles</a><br />
-<button onclick="deletePages();">Verwijder selectie</button>
-<button onclick="updatePos();">Update positie</button><br />
-<button onclick="addPage();">Voeg toe</button>
+<a href="javascript: void(0);" onclick="selectPages();">Select all</a> / <a href="javascript: void(0);" onclick="deSelectPages();">Deselect all</a><br />
+<button onclick="deletePages();">Delete selected</button>
+<button onclick="updatePos();">Update all</button><br />
+<button onclick="addPage();">Add new page</button>

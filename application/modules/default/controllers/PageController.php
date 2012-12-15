@@ -11,7 +11,7 @@ class Default_PageController extends Zend_Controller_Action {
         $pageid = $this->_getParam('id', false);
         if ($pageid == false) {
             $error = new Zend_Session_Namespace('error');
-            $error->msg = 'Er is geen id meegestuurd als parameter!';
+            $error->msg = "Parameter 'id' is missing!";
             $this->_redirect('/');
         }
 
@@ -22,7 +22,7 @@ class Default_PageController extends Zend_Controller_Action {
         // check if object contains id
         if (!isset($page->id) || $page->status == 'N') {
             $error = new Zend_Session_Namespace('error');
-            $error->msg = 'De pagina die u probeerde aan te roepen bestaat niet!';
+            $error->msg = "This page doesn't exists!";
             $this->_redirect('/page-not-found/');
         }
         

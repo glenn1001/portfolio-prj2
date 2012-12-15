@@ -36,24 +36,24 @@ class Admn_Form_Page extends Zend_Form {
         $this->setName('page');
 
         $title = new Zend_Form_Element_Text('title');
-        $title->setLabel('Titel:')
+        $title->setLabel('Title:')
                 ->setRequired(true)
                 ->setFilters(array('StringTrim'))
                 ->setValue($this->_title_value);
 
         $parent_id = new Zend_Form_Element_Select('parent_id');
         $parent_id = $this->setParentOptions($parent_id, $pages);
-        $parent_id->setLabel('Bovenliggende pagina:')
+        $parent_id->setLabel('Parent page:')
                 ->setValue($this->_parent_id_value)
                 ->setValidators(array('Int'));
 
         $descr = new Zend_Form_Element_Textarea('descr');
-        $descr->setLabel('Beschrijving:')
+        $descr->setLabel('Description:')
                 ->setAttrib('id', 'descr')
                 ->setValue($this->_descr_value);
 
         $meta_descr = new Zend_Form_Element_Textarea('meta_descr');
-        $meta_descr->setLabel('META beschrijving:')
+        $meta_descr->setLabel('META description:')
                 ->setFilters(array('StringTrim'))
                 ->setAttrib('cols', '50')
                 ->setAttrib('rows', '5')
@@ -67,28 +67,28 @@ class Admn_Form_Page extends Zend_Form {
                 ->setValue($this->_meta_keywords_value);
 
         $canonical = new Zend_Form_Element_Text('canonical');
-        $canonical->setLabel('Canonical link:')
+        $canonical->setLabel('Canonical URL:')
                 ->setFilters(array('StringTrim'))
                 ->setValue($this->_canonical_value);
 
         $pos = new Zend_Form_Element_Text('pos');
-        $pos->setLabel('Positie:')
+        $pos->setLabel('Position:')
                 ->setValidators(array('Int'))
                 ->setValue($this->_pos_value);
 
         $status = new Zend_Form_Element_Select('status');
         $status->setLabel('Status:')
                 ->addMultiOptions(array(
-                    'Y' => 'Actief',
-                    'N' => 'Inactief'
+                    'Y' => 'Active',
+                    'N' => 'Inactive'
                 ))
                 ->setValue($this->_status_value);
 
         $menu = new Zend_Form_Element_Select('menu');
-        $menu->setLabel('Toon in menu:')
+        $menu->setLabel('Show in navigation:')
                 ->addMultiOptions(array(
-                    'Y' => 'Ja',
-                    'N' => 'Nee'
+                    'Y' => 'Yes',
+                    'N' => 'No'
                 ))
                 ->setValue($this->_menu_value);
 
@@ -102,7 +102,7 @@ class Admn_Form_Page extends Zend_Form {
 
     private function setParentOptions($element, $pages) {
         $element->addMultiOptions(array(
-            0 => 'Geen'
+            0 => 'None'
         ));
         
         if (is_array($pages)) {
