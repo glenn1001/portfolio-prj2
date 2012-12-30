@@ -2,11 +2,6 @@
 
 class Default_Form_Contact extends Zend_Form {
     
-    private $_name_value;
-    private $_email_value;
-    private $_subject_value;
-    private $_message_value;
-    
     public function __construct($option = null) {
         parent::__construct($option);
         
