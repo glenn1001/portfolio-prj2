@@ -62,7 +62,7 @@ class Admn_UrlController extends Zend_Controller_Action {
         ));
 
         $totalProjects = count($dbTableProject->fetchAll());
-        $totalProjectPages = ceil($totalProjects / $dbTableProject->_projectsPerPage);
+        $totalProjectPages = ceil($totalProjects / $dbTableProject->projectsPerPage);
 
         for ($i = 1; $i <= $totalProjectPages; $i++) {
             $this->_dbTableUrlRewrite->insert(array(

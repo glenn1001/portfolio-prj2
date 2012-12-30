@@ -1,13 +1,69 @@
 <div id="content_inner">
-    <?php
-    foreach ($this->projects as $project) {
-    ?>
-    <div>
-        <img src="/img/pc/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" /><br />
-        <?php echo $project->title; ?><br />
-        <?php echo $project->meta_descr; ?> <a href="/projecten<?php echo $project->canonical; ?>">[Read more ...]</a>
+    <div class="projects">
+        <?php
+        foreach ($this->projects as $project) {
+            ?>
+            <div class="project">
+                <img src="/img/pc/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" /><br />
+                <?php echo $project->title; ?><br />
+                <?php echo $project->meta_descr; ?><br />
+                <a href="/projecten<?php echo $project->canonical; ?>" class="button">Lees meer</a>
+            </div>
+            <?php
+        }
+        ?>
+        <div class="clear"></div>
+        <?php
+        if (is_array($this->prevPages)) {
+            echo '<div class="prev">';
+            $first = true;
+            foreach ($this->prevPages as $page) {
+                if ($first) {
+                    echo '<a href="' . $page['url'] . '">' . $page['name'] . '</a>';
+                    $first = false;
+                } else {
+                    echo ' | <a href="' . $page['url'] . '">' . $page['name'] . '</a>';
+                }
+            }
+            echo '</div>';
+        }
+        
+        if (is_array($this->nextPages)) {
+            echo '<div class="next">';
+            $first = true;
+            foreach ($this->nextPages as $page) {
+                if ($first) {
+                    echo '<a href="' . $page['url'] . '">' . $page['name'] . '</a>';
+                    $first = false;
+                } else {
+                    echo ' | <a href="' . $page['url'] . '">' . $page['name'] . '</a>';
+                }
+            }
+            echo '</div>';
+        }
+        
+        if (is_array($this->pages)) {
+            echo '<div class="pages">';
+            $first = true;
+            foreach ($this->pages as $page) {
+                if ($first) {
+                    if ($page['name'] != $this->currentPage) {
+                        echo '<a href="' . $page['url'] . '">' . $page['name'] . '</a>';
+                    } else {
+                        echo '<strong><u>' . $page['name'] . '</u></strong>';
+                    }
+                    $first = false;
+                } else {
+                    if ($page['name'] != $this->currentPage) {
+                        echo ' | <a href="' . $page['url'] . '">' . $page['name'] . '</a>';
+                    } else {
+                        echo ' | <strong><u>' . $page['name'] . '</u></strong>';
+                    }
+                }
+            }
+            echo '</div>';
+        }
+        ?>
+        <div class="clear"></div>
     </div>
-    <?php
-    }
-    ?>
 </div>

@@ -4,32 +4,40 @@
   Author     : Glenn Blom <glennblom@gmail.com>
 */
 
+/*
+ * Basic styles
+ */
 * { 
     margin: 0px;
     padding: 0px;
-    font-family: verdana, sans-serif;
+/*    font: verdana, sans-serif;*/
 }
 
 body {
     background: #0F3755;
+    font: 12px/24px verdana, sans-serif;
 }
 
 input[type="submit"], a.button, button {
     background: #3C99DC;
-    background: -webkit-gradient(linear, left top, left bottom, from(#3C99DC), to(#6FB3E5));
-    background: -moz-linear-gradient(top, #3C99DC, #6FB3E5);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#3C99DC, endColorstr=#6FB3E5);
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#3C99DC, endColorstr=#6FB3E5)";
+    background: -webkit-gradient(linear, left top, left bottom, from(#185988), to(#3C99DC));
+    background: -moz-linear-gradient(top, #185988, #3C99DC);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#185988, endColorstr=#3C99DC);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#185988, endColorstr=#3C99DC)";
     border-width: 2px;
     border-color: #185988;
     display: inline-block;
     border-style: outset;
     cursor: pointer;
     padding: 3px 15px;
-    color: white;
+    color: white !important;
     font-size: 16px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+}
+
+input[type="submit"]:hover, a.button:hover, button:hover {
+    text-decoration: none;
 }
 
 input[type="submit"]:active, a.button:active, button:active {
@@ -61,6 +69,14 @@ a:hover {
     min-height: 500px;
 }
 
+.clear {
+    clear: both;
+}
+
+/*
+ * Header
+ */
+
 #header_outer {
     background: #0F3755;
     background: -webkit-gradient(linear, left top, left bottom, from(#185988), to(#0F3755));
@@ -86,6 +102,7 @@ div#nav {
     float: left;
     width: auto;
     z-index: 110;
+    font-size: 16px;
 }
 
 div#nav ul li {
@@ -131,26 +148,9 @@ div#nav ul li ul li a {
     background: none !important;
 }
 
-
-div#slider_outer {
-    background: #0F3755;
-    background: -webkit-gradient(linear, left top, left bottom, from(#0F3755), to(#061522));
-    background: -moz-linear-gradient(top, #0F3755, #061522);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#0F3755, endColorstr=#061522);
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#0F3755, endColorstr=#061522)";
-    min-height: 300px;
-}
-
-div#slider_inner {
-    width: 990px;
-    margin: 0 auto;
-}
-
-div#wowslider-container1 {
-    top: 10px;
-    position: relative;
-    width: 990px;
-}
+/*
+ * Content
+ */
 
 div#content_outer {
     background: #F9F9F9;
@@ -175,6 +175,61 @@ div#content_inner div.box {
     width: 320px;
     margin: 10px 5px;
 }
+
+/*
+ * Slider
+ */
+
+div#slider_outer {
+    background: #0F3755;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0F3755), to(#061522));
+    background: -moz-linear-gradient(top, #0F3755, #061522);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#0F3755, endColorstr=#061522);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#0F3755, endColorstr=#061522)";
+    min-height: 300px;
+}
+
+div#slider_inner {
+    width: 990px;
+    margin: 0 auto;
+}
+
+div#wowslider-container1 {
+    top: 10px;
+    position: relative;
+    width: 990px;
+}
+
+/*
+ * Projects
+ */
+
+ div.projects div.project {
+     width: 330px;
+     float: left;
+     margin: 20px 0;
+ }
+ 
+ div.projects div.project img {
+     width: 300px;
+ }
+ 
+ div.projects div.prev {
+     float: left;
+ }
+ 
+ div.projects div.pages {
+     margin: 0 auto;
+     width: 100px;
+ }
+ 
+ div.projects div.next {
+     float: right;
+ }
+
+/*
+ * Footer
+ */
 
 div#footer_outer {
     background: #0F3755;
@@ -228,6 +283,10 @@ div#footer_inner div ul.social-media li a {
     font-size: 16px;
 }
 
+/*
+ * Contact
+ */
+
 div.contact {
     position: relative;
 }
@@ -250,7 +309,7 @@ div.contact form dl dt label {
 
 div.contact form dl dd input[type="text"] {
     position: relative;
-    top: -8px;
+    top: -2px;
     width: 215px;
     background: #217ABB;
     border-color: #185988;
@@ -286,10 +345,6 @@ div.contact form dl dd ul {
 div.contact form dl dd input[type="submit"] {
     position: absolute;
     left: 0px;
-}
-
-.clear {
-    clear: both;
 }
 
 /*

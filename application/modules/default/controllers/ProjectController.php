@@ -1,25 +1,29 @@
 <?php
 
 class Default_ProjectController extends Zend_Controller_Action {
-
-    public function init() {
-        /* Initialize action controller here */
-    }
+    
+    private $_pageId;
+    private $_totalPages;
 
     public function indexAction() {
-        $pageid = $this->_getParam('pageid', 1);
+        $this->_pageId = $this->_getParam('pageid', 1);
         $dbTableProject = new Default_Model_DbTable_Project();
         
         $totalProjects = count($dbTableProject->fetchAll());
-        $totalPages = ceil($totalProjects / $dbTableProject->_projectsPerPage);
+        $this->_totalPages = ceil($totalProjects / $dbTableProject->projectsPerPage);
         
-        if ($pageid > $totalPages) {
-            $this->redirect('/project/index/pageid/' . $totalPages . '/');
+        if ($this->_pageId > $this->_totalPages) {
+            $this->redirect('/project/index/pageid/' . $this->_totalPages . '/');
         }
         
-        $projects = $dbTableProject->getProjects($pageid);
+        $projects = $dbTableProject->getProjects($this->_pageId);
         
         $this->view->projects = $projects;
+        
+        $this->view->currentPage = $this->_pageId;
+        $this->view->prevPages = $this->getPrevPages();
+        $this->view->pages = $this->getPages();
+        $this->view->nextPages = $this->getNextPages();
     }
 
     public function viewAction() {
@@ -57,6 +61,61 @@ class Default_ProjectController extends Zend_Controller_Action {
         }
         
         $this->view->projectinfo = $project;
+    }
+    
+    private function getPrevPages() {
+        $pages = array();
+        if ($this->_pageId > 1) {
+            $pages[] = array(
+                'url'   => '/projecten/',
+                'name'  => 'Eerste pagina'
+            );
+            
+            $url = '/projecten/' . (($this->_pageId - 1) == 1 ? '' : ($this->_pageId - 1). '/');
+            $pages[] = array(
+                'url'   => $url,
+                'name'  => 'Vorige pagina'
+            );
+        }
+        
+        return $pages;
+    }
+    
+    private function getPages() {
+        $pages = array();
+        $start = $this->_pageId - 2;
+        $end = $this->_pageId + 2;
+        
+        if ($end > $this->_totalPages) {
+            $end = $this->_totalPages;
+        }
+        
+        for ($i = $start; $i <= $end ;$i++) {
+            if ($i >= 1) {
+                $pages[] = array(
+                    'url'   => '/projecten/' . $i . '/',
+                    'name'  => $i
+                );
+            }
+        }
+        
+        return $pages;
+    }
+    
+    private function getNextPages() {
+        $pages = array();
+        if (($this->_pageId + 1) <= $this->_totalPages) {
+            $pages[] = array(
+                'url'   => '/projecten/' . ($this->_pageId + 1) . '/',
+                'name'  => 'Volgende pagina'
+            );
+            $pages[] = array(
+                'url'   => '/projecten/' . $this->_totalPages . '/',
+                'name'  => 'Laatste pagina'
+            );
+        }
+        
+        return $pages;
     }
 
 }

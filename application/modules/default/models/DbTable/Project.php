@@ -5,7 +5,7 @@ class Default_Model_DbTable_Project extends Zend_Db_Table_Abstract {
     protected $_name = 'project';
     protected $_primary = 'id';
     
-    public $_projectsPerPage = '6';
+    public $projectsPerPage = '6';
     
     /**
      *
@@ -16,8 +16,8 @@ class Default_Model_DbTable_Project extends Zend_Db_Table_Abstract {
         $projects = $this->fetchAll(null, 'pos DESC');
         $return = array();
         
-        $start = ($pageid - 1) * $this->_projectsPerPage;
-        for ($i = $start; $i < ($start + $this->_projectsPerPage); $i++) {
+        $start = ($pageid - 1) * $this->projectsPerPage;
+        for ($i = $start; $i < ($start + $this->projectsPerPage); $i++) {
             if (isset($projects[$i])) {
                 $return[] = $projects[$i];
             }
