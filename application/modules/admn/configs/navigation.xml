@@ -10,6 +10,15 @@
             <privilege>index</privilege>
         </home>
         
+        <slideshow>
+            <label>Slideshow</label>
+            <module>admn</module>
+            <controller>slideshow</controller>
+            <action>index</action>
+            <resource>admn:slideshow</resource>
+            <privilege>index</privilege>
+        </slideshow>
+        
         <project>
             <label>Projects</label>
             <module>admn</module>

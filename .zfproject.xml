@@ -76,6 +76,7 @@
               <dbTableFile dbTableName="User"/>
               <dbTableFile dbTableName="Page"/>
               <dbTableFile dbTableName="Project"/>
+              <dbTableFile dbTableName="Slideshow"/>
             </dbTableDirectory>
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
@@ -133,11 +134,19 @@
               <actionMethod actionName="index"/>
               <actionMethod actionName="generateNavigation"/>
             </controllerFile>
+            <controllerFile controllerName="Slideshow">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="create"/>
+              <actionMethod actionName="edit"/>
+              <actionMethod actionName="delete"/>
+              <actionMethod actionName="update"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false">
             <formFile formName="Login"/>
             <formFile formName="Page"/>
             <formFile formName="Project"/>
+            <formFile formName="Slideshow"/>
           </formsDirectory>
           <layoutsDirectory enabled="false"/>
           <modelsDirectory/>
@@ -191,6 +200,21 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Xml">
                 <viewScriptFile forActionName="generateNavigation"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Slideshow">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Slideshow">
+                <viewScriptFile forActionName="create"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Slideshow">
+                <viewScriptFile forActionName="edit"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Slideshow">
+                <viewScriptFile forActionName="delete"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Slideshow">
+                <viewScriptFile forActionName="update"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

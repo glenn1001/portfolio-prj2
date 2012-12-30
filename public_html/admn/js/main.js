@@ -1,3 +1,15 @@
+function deleteSlideshow() {
+    var form = document.getElementById('slideshow');
+    form.action = '/admn/slideshow/delete/';
+    form.submit();
+}
+
+function updateSlideshowPos() {
+    var form = document.getElementById('slideshow');
+    form.action = '/admn/slideshow/update/';
+    form.submit();
+}
+
 function deleteProjects() {
     var form = document.getElementById('projects');
     form.action = '/admn/project/delete/';
@@ -22,7 +34,7 @@ function updatePagePos() {
     form.submit();
 }
 
-function selectPages() {
+function selectAll() {
     var checkboxes = document.getElementsByTagName('input');
     for (var i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].type == 'checkbox') {
@@ -31,7 +43,7 @@ function selectPages() {
     }
 }
 
-function deSelectPages() {
+function deSelectAll() {
     var checkboxes = document.getElementsByTagName('input');
     for (var i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].type == 'checkbox') {

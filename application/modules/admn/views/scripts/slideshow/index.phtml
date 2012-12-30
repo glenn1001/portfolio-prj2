@@ -1,0 +1,49 @@
+<form id="slideshow" method="post" action="/admn/slideshow/update/">
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Position</td>
+            <td>Image</td>
+            <td>Image location</td>
+            <td style="min-width: 120px;">Slideshow</td>
+            <td>Status</td>
+        </tr>
+        <?php
+        if (isset($this->slideshow[0])){
+            foreach ($this->slideshow as $slideshow) {
+            ?>
+            <tr>
+                <td><input type="checkbox" name="delete[<?php echo $slideshow->id; ?>]" value="Y" /></td>
+                <td><input type="text" size="3" name="update[<?php echo $slideshow->id; ?>]" value="<?php echo $slideshow->pos; ?>" /></td>
+                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $slideshow->id)); ?>/"><img src="/img/pc/slideshow/<?php echo $slideshow->img; ?>" alt="<?php echo $slideshow->title; ?>" title="<?php echo $slideshow->title; ?>" style="width: 350px;" /></a></td>
+                <td>
+                    <select name="img_loc[<?php echo $slideshow->id; ?>]">
+                        <option <?php if ($slideshow->img_loc == 'right'){echo 'selected="selected"';} ?> value="right">Right</option>
+                        <option <?php if ($slideshow->img_loc == 'left'){echo 'selected="selected"';} ?>value="left">Left</option>
+                    </select>
+                </td>
+                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $slideshow->id)); ?>/"><?php echo $slideshow->title; ?></a></td>
+                <td>
+                    <select name="status[<?php echo $slideshow->id; ?>]">
+                        <option <?php if ($slideshow->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Active</option>
+                        <option <?php if ($slideshow->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactive</option>
+                    </select>
+                </td>
+            </tr>
+            <?php
+            }
+        } else {
+        ?>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="6">There are no slideshow!</td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
+</form>
+<a href="javascript: void(0);" onclick="selectAll();">Select all</a> / <a href="javascript: void(0);" onclick="deSelectAll();">Deselect all</a><br />
+<button onclick="deleteSlideshow();">Delete selected</button>
+<button onclick="updateSlideshowPos();">Update all</button><br />
+<a href="<?php echo $this->url(array('action' => 'create')); ?>/" class="button">Add new slideshow</a>
