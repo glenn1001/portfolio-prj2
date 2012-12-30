@@ -61,14 +61,16 @@ class Admn_XmlController extends Zend_Controller_Action {
 
     private function generateNavigationProjects() {
         $dbTableProject = new Default_Model_DbTable_Project();
-        $projects = $dbTableProject->fetchAll("`menu`='Y'", 'pos DESC');
+        $projects = $dbTableProject->fetchAll("`status`='Y'  AND `menu`='Y'", 'pos DESC');
 
         $projectNav = $this->_xml->createElement('projects');
         $label = $this->_xml->createElement('label', 'Projecten');
         $uri = $this->_xml->createElement('uri', '/projecten/');
         $resource = $this->_xml->createElement('resource', 'default:project');
         $privilege = $this->_xml->createElement('privilege', 'index');
-        $projectNavPages = $this->_xml->createElement('pages');
+        if (count($projects) > 0) {
+            $projectNavPages = $this->_xml->createElement('pages');
+        }
 
         $counter = 1;
         foreach ($projects as $project) {
@@ -98,14 +100,16 @@ class Admn_XmlController extends Zend_Controller_Action {
         $projectNav->appendChild($uri);
         $projectNav->appendChild($resource);
         $projectNav->appendChild($privilege);
-        $projectNav->appendChild($projectNavPages);
+        if (count($projects) > 0) {
+            $projectNav->appendChild($projectNavPages);
+        }
 
         $this->_nav->appendChild($projectNav);
     }
 
     private function generateNavigationPages($parent_id = 0) {
         $dbTablePage = new Default_Model_DbTable_Page();
-        $pages = $dbTablePage->fetchAll("`parent_id`='$parent_id' AND `menu`='Y'", 'pos ASC');
+        $pages = $dbTablePage->fetchAll("`parent_id`='$parent_id' AND `status`='Y'  AND `menu`='Y'", 'pos ASC');
 
         $counter = 1;
         $subNavPages = array();
@@ -127,7 +131,7 @@ class Admn_XmlController extends Zend_Controller_Action {
             $pageNav->appendChild($resource);
             $pageNav->appendChild($privilege);
             
-            if (count($dbTablePage->fetchAll("`parent_id`='" . $page->id . "'")) > 0) {
+            if (count($dbTablePage->fetchAll("`parent_id`='" . $page->id . "' AND `status`='Y'  AND `menu`='Y'")) > 0) {
                 $pageNavPages = $this->_xml->createElement('pages');
                 
                 $subPages = $this->generateNavigationPages($page->id);
