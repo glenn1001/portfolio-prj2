@@ -2,8 +2,8 @@
     <table>
         <tr>
             <td>&nbsp;</td>
-            <td>Image</td>
             <td>Position</td>
+            <td>Image</td>
             <td style="min-width: 120px;">Project</td>
             <td>Status</td>
             <td>Show in navigation</td>
@@ -15,8 +15,8 @@
             ?>
             <tr>
                 <td><input type="checkbox" name="delete[<?php echo $project->id; ?>]" value="Y" /></td>
-                <td><img src="/img/pc/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" style="width: 100px;" /></td>
                 <td><input type="text" size="3" name="update[<?php echo $project->id; ?>]" value="<?php echo $project->pos; ?>" /></td>
+                <td><img src="/img/pc/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" style="width: 100px;" /></td>
                 <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $project->id)); ?>/"><?php echo $project->title; ?></a></td>
                 <td>
                     <select name="status[<?php echo $project->id; ?>]">
