@@ -67,7 +67,9 @@
               <actionMethod actionName="view"/>
             </controllerFile>
           </controllersDirectory>
-          <formsDirectory enabled="false"/>
+          <formsDirectory enabled="false">
+            <formFile formName="Contact"/>
+          </formsDirectory>
           <layoutsDirectory enabled="false"/>
           <modelsDirectory>
             <dbTableDirectory>

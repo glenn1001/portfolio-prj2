@@ -33,11 +33,65 @@
             <div class="clear"></div>
             <div id="content_outer">
                 <?= $this->layout()->content; ?>
+                <div class="clear"></div>
             </div>
             <div class="clear"></div>
             <div id="footer_outer">
                 <div id="footer_inner">
-                    Footer
+                    <div>
+                        <h3>Projecten</h3>
+                        <ul>
+                            <li>
+                                <a href="#">Portfolio Zend Framework</a>
+                            </li>
+                            <li>
+                                <a href="#">Buckaroo koppeling</a>
+                            </li>
+                            <li>
+                                <a href="#">PostNL Checkpay koppeling</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Social media</h3>
+                        <ul class="social-media">
+                            <li>
+                                <a href="https://github.com/glenn1001/" target="_blank">
+                                    <img src="/img/pc/social-media/github.ico" alt="GitHub" title="GitHub" />
+                                    GitHub
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.linkedin.com/profile/view?id=74647824&trk=tab_pro" target="_blank">
+                                    <img src="/img/pc/social-media/linkedin.ico" alt="LinkedIn" title="LinkedIn" />
+                                    LinkedIn
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.facebook.com/glenn.blom.9" target="_blank">
+                                    <img src="/img/pc/social-media/facebook.ico" alt="Facebook" title="Facebook" />
+                                    Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/113906563893465330742/posts" target="_blank">
+                                    <img src="/img/pc/social-media/google+.ico" alt="Google+" title="Google+" />
+                                    Google+
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/glenn10011" target="_blank">
+                                    <img src="/img/pc/social-media/twitter.ico" alt="Twitter" title="Twitter" />
+                                    Twitter
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact">
+                        <h3>Neem contact op</h3>
+                        <?php echo $this->contactform; ?>
+                    </div>
+                    <div class="clear"></div>
                 </div>
             </div>
         </div>
