@@ -95,5 +95,13 @@
                 </div>
             </div>
         </div>
+        
+        <?php
+        if (isset($this->contactSuccess)) {
+        ?>
+        <script type="text/javascript">alert('<?= $this->contactSuccess; ?>');</script>
+        <?php
+        }
+        ?>
     </body>
 </html>

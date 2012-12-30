@@ -18,6 +18,7 @@ class Plugin_ContactForm extends Zend_Controller_Plugin_Abstract {
                 $this->sendMessage();
                 $this->sendCopy();
                 $this->_contactform->reset();
+                $this->_view->contactSuccess = 'Bedankt voor uw bericht, ik zal hier z.s.m. op reageren.';
             }
         }
 
