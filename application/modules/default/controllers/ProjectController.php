@@ -9,7 +9,7 @@ class Default_ProjectController extends Zend_Controller_Action {
         $this->_pageId = $this->_getParam('pageid', 1);
         $dbTableProject = new Default_Model_DbTable_Project();
         
-        $totalProjects = count($dbTableProject->fetchAll());
+        $totalProjects = count($dbTableProject->fetchAll("`status`='Y'"));
         $this->_totalPages = ceil($totalProjects / $dbTableProject->projectsPerPage);
         
         if ($this->_pageId > $this->_totalPages) {
@@ -43,7 +43,7 @@ class Default_ProjectController extends Zend_Controller_Action {
         if (!isset($project->id) || $project->status == 'N') {
             $error = new Zend_Session_Namespace('error');
             $error->msg = "This project doesn't exists!";
-            $this->_redirect('/project-not-found/');
+            $this->_redirect('/page-not-found/');
         }
         
         $this->view->headTitle($project->title, 'PREPEND');

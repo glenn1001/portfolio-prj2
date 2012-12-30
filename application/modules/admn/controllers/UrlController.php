@@ -61,7 +61,7 @@ class Admn_UrlController extends Zend_Controller_Action {
             'generated' => 'Y'
         ));
 
-        $totalProjects = count($dbTableProject->fetchAll());
+        $totalProjects = count($dbTableProject->fetchAll("`status`='Y'"));
         $totalProjectPages = ceil($totalProjects / $dbTableProject->projectsPerPage);
 
         for ($i = 1; $i <= $totalProjectPages; $i++) {

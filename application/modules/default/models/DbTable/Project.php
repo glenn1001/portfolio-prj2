@@ -13,7 +13,7 @@ class Default_Model_DbTable_Project extends Zend_Db_Table_Abstract {
      * @return array Returns array with projects for this page.
      */
     public function getProjects($pageid) {
-        $projects = $this->fetchAll(null, 'pos DESC');
+        $projects = $this->fetchAll("`status`='Y'", 'pos DESC');
         $return = array();
         
         $start = ($pageid - 1) * $this->projectsPerPage;
