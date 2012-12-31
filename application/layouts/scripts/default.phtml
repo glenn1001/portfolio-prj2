@@ -11,14 +11,10 @@
 
         <?php
         echo $this->headScript()->appendFile('/js/jquery-1.8.3.js')
+                ->appendFile('/js/jquery.cycle.all.js')
                 ->appendFile('/js/main.js');
         ?>
 
-
-        <!-- Start WOWSlider.com HEAD section -->
-        <link rel="stylesheet" type="text/css" href="/css/pc/slider/style.css" />
-        <script type="text/javascript" src="/js/slider/jquery.js"></script>
-        <!-- End WOWSlider.com HEAD section -->
     </head>
     <body>
         <div id="container">
@@ -91,8 +87,8 @@
                         <h3>Neem contact op</h3>
                         <?php echo $this->contactform; ?>
                     </div>
-                    <div class="clear"></div>
                 </div>
+                <div class="clear"></div>
             </div>
         </div>
         

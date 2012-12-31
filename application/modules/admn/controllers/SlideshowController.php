@@ -4,7 +4,7 @@ class Admn_SlideshowController extends Zend_Controller_Action {
 
     public function indexAction() {
         $dbTableSlideshow = new Default_Model_DbTable_Slideshow();
-        $slideshow = $dbTableSlideshow->fetchAll(null, 'pos DESC');
+        $slideshow = $dbTableSlideshow->fetchAll(null, 'pos ASC');
 
         $this->view->slideshow = $slideshow;
     }
