@@ -158,7 +158,7 @@ div#content_outer {
     background: -moz-linear-gradient(top, #E6E6E6, #F9F9F9);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6E6E6, endColorstr=#F9F9F9);
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6E6E6, endColorstr=#F9F9F9)";
-    min-height: 550px;
+    min-height: 594px;
     padding: 0 0 20px;
 }
 
