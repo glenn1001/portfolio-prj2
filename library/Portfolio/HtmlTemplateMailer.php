@@ -22,7 +22,7 @@ class Portfolio_HtmlTemplateMailer extends Zend_Mail {
     protected static function getDefaultView() {
         if (self::$_defaultView === null) {
             self::$_defaultView = new Zend_View();
-            self::$_defaultView->setScriptPath(APPLICATION_PATH . '/layouts/scripts/mails');
+            self::$_defaultView->setScriptPath(APPLICATION_PATH . '/modules/default/views/layouts/mails');
         }
 
         return self::$_defaultView;

@@ -7,13 +7,12 @@ class Plugin_LayoutCheck extends Zend_Controller_Plugin_Abstract {
         $module = $request->getModuleName();
         $layout = Zend_Layout::getMvcInstance();
 
-        // check module and automatically set layout
-        $layoutsDir = $layout->getLayoutPath();
-        // check if module layout exists else use default
-        if (file_exists($layoutsDir . DIRECTORY_SEPARATOR . $module . ".phtml")) {
-            $layout->setLayout($module);
+        // check if module layout exists else disable layout
+        if (file_exists(APPLICATION_PATH . '/modules/' . $module . '/views/layouts/layout.phtml')) {
+            $layout->setLayoutPath(APPLICATION_PATH . '/modules/' . $module . '/views/layouts/');
+            $layout->setLayout('layout');
         } else {
-            $layout->setLayout("default");
+            $layout->disableLayout();
         }
     }
 
