@@ -10,12 +10,15 @@
 * { 
     margin: 0px;
     padding: 0px;
-/*    font: verdana, sans-serif;*/
 }
 
 body {
     background: #0F3755;
     font: 12px/24px verdana, sans-serif;
+}
+
+p {
+    margin: 15px 0px;
 }
 
 input[type="submit"], a.button, button {
@@ -51,8 +54,7 @@ table {
 }
 
 table tr td {
-    border: 1px solid black;
-    padding: 2px 5px;
+    padding: 3px 15px 3px 0;
 }
 
 a:link, a:visited {
@@ -94,17 +96,13 @@ a:hover {
     color: white;
 }
 
-#header_inner h1 {
-
-}
-
 div#nav {
     position: relative;
     top: 20px;
     float: left;
     width: auto;
     z-index: 110;
-    font-size: 16px;
+    font-size: 19px;
 }
 
 div#nav ul li {
@@ -133,6 +131,7 @@ div#nav ul li ul {
     -webkit-box-shadow: 2px 4px 15px rgba(0, 0, 0, .4);
     -moz-box-shadow: 2px 4px 15px rgba(0, 0, 0, .4);
     box-shadow: 2px 4px 15px rgba(0, 0, 0, .4);
+    font-size: 16px;
 }
 
 div#nav ul li ul li {
@@ -140,7 +139,7 @@ div#nav ul li ul li {
 }
 
 div#nav ul li ul li:hover {
-    background: url('/img/pc/bg/black30.png') repeat !important;
+    background: url('/img/bg/black30.png') repeat !important;
 }
 
 div#nav ul li ul li a {
@@ -162,9 +161,35 @@ div#content_outer {
     padding: 0 0 20px;
 }
 
+div#title_outer {
+    padding: 15px;
+    background: #8c8c8c;
+    background: -webkit-gradient(linear, left top, left bottom, from(#aaaaaa), to(#8c8c8c));
+    background: -moz-linear-gradient(top, #aaaaaa, #8c8c8c);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#aaaaaa, endColorstr=#8c8c8c);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#aaaaaa, endColorstr=#8c8c8c)";
+    color: white;
+}
+
+div#title_inner {
+    width: 990px;
+    margin: 0 auto;
+}
+
 div#content_inner {
     width: 990px;
     margin: 0 auto;
+    padding: 8px 0;
+}
+
+div#content_inner div#left_column {
+    float: left;
+    width: 330px;
+}
+
+div#content_inner div#right_column {
+    float: left;
+    width: 660px;
 }
 
 div#content_inner a {
@@ -285,8 +310,8 @@ div#footer_outer {
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#185988, endColorstr=#0F3755)";
     min-height: 250px;
     color: white;
-    font-size: 24px;
-    padding: 5px 0 20px;
+    font-size: 14px;
+    padding: 0 0 20px;
 }
 
 div#footer_inner {
@@ -301,14 +326,12 @@ div#footer_inner div {
 }
 
 div#footer_inner div h3 {
-    font-size: 26px;
-    line-height: 46px;
+    font-size: 20px;
+    line-height: 42px;
     font-weight: normal;
 }
 div#footer_inner div ul {
-    margin-top: 10px;
     margin-left: 20px;
-    font-size: 16px;
 }
 
 div#footer_inner div ul.social-media {
@@ -328,7 +351,6 @@ div#footer_inner div ul.social-media li a img {
 
 div#footer_inner div ul.social-media li a {
     line-height: 24px;
-    font-size: 16px;
 }
 
 /*
@@ -339,13 +361,9 @@ div.contact {
     position: relative;
 }
 
-div.contact form {
-    margin-top: 10px;
-}
-
 div.contact form dl dt {
     float: left;
-    font-size: 16px;
+    font-size: 14px;
     width: 100px;
     margin: 0px;
     padding: 0px;
@@ -357,7 +375,7 @@ div.contact form dl dt label {
 
 div.contact form dl dd input[type="text"] {
     position: relative;
-    top: -2px;
+    top: 1px;
     width: 215px;
     background: #217ABB;
     border-color: #185988;
