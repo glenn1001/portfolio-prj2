@@ -15,7 +15,7 @@
             <tr>
                 <td><input type="checkbox" name="delete[<?php echo $slideshow->id; ?>]" value="Y" /></td>
                 <td><input type="text" size="3" name="update[<?php echo $slideshow->id; ?>]" value="<?php echo $slideshow->pos; ?>" /></td>
-                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $slideshow->id)); ?>/"><img src="/img/pc/slideshow/<?php echo $slideshow->img; ?>" alt="<?php echo $slideshow->title; ?>" title="<?php echo $slideshow->title; ?>" style="width: 350px;" /></a></td>
+                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $slideshow->id)); ?>/"><img src="/img/slideshow/<?php echo $slideshow->img; ?>" alt="<?php echo $slideshow->title; ?>" title="<?php echo $slideshow->title; ?>" style="width: 350px;" /></a></td>
                 <td>
                     <select name="img_loc[<?php echo $slideshow->id; ?>]">
                         <option <?php if ($slideshow->img_loc == 'right'){echo 'selected="selected"';} ?> value="right">Right</option>

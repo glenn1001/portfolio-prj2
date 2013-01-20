@@ -4,7 +4,7 @@
         foreach ($this->projects as $project) {
             ?>
             <div class="project">
-                <img src="/img/pc/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" /><br />
+                <img src="/img/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" /><br />
                 <?php echo $project->title; ?><br />
                 <?php echo $project->meta_descr; ?><br />
                 <a href="/projecten<?php echo $project->canonical; ?>" class="button">Lees meer</a>

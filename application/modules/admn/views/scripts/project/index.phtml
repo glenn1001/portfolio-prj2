@@ -16,7 +16,7 @@
             <tr>
                 <td><input type="checkbox" name="delete[<?php echo $project->id; ?>]" value="Y" /></td>
                 <td><input type="text" size="3" name="update[<?php echo $project->id; ?>]" value="<?php echo $project->pos; ?>" /></td>
-                <td><img src="/img/pc/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" style="width: 100px;" /></td>
+                <td><img src="/img/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" style="width: 100px;" /></td>
                 <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $project->id)); ?>/"><?php echo $project->title; ?></a></td>
                 <td>
                     <select name="status[<?php echo $project->id; ?>]">
