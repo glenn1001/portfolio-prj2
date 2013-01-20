@@ -187,6 +187,45 @@ div#content_inner div#left_column {
     width: 330px;
 }
 
+div#content_inner div#left_column ul.nav {
+    width: 300px;
+    overflow: hidden;
+    list-style: none;
+}
+
+div#content_inner div#left_column ul li a {
+    display: inline-block;
+    width: 285px;
+    background: #e6e6e6;
+    padding: 8px 15px 8px;
+    margin-left: -5px;
+    border-bottom: 1px solid #c8c8c8;
+    font-weight: bold;
+}
+
+div#content_inner div#left_column ul li a:hover {
+    background: #c8c8c8;
+}
+
+div#content_inner div#left_column ul li a.active {
+    background: #aaaaaa;
+    background-image: url('/img/arrow2.png');
+    background-repeat: no-repeat;
+    background-position: 285px center;
+}
+
+div#content_inner div#left_column ul li ul {
+    list-style: none;
+}
+
+div#content_inner div#left_column ul li ul li a {
+    padding-left: 25px;
+}
+
+div#content_inner div#left_column ul li ul li ul li a {
+    padding-left: 35px;
+}
+
 div#content_inner div#right_column {
     float: left;
     width: 660px;

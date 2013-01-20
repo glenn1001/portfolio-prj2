@@ -10,7 +10,7 @@ $(document).ready(function() {
     $("#nav ul li").hover(
         function () {
             if ($(this).find('ul').length != 0 && slideCheck == true) {
-                $(this).find('a').css("background-image" , "url('/img/pc/arrow.png')");
+                $(this).find('a').css("background-image" , "url('/img/arrow.png')");
                 $(this).find('ul').slideDown('fast');
             }
             
