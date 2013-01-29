@@ -255,10 +255,10 @@ div#content_inner a {
     color: black;
 }
 
-div#content_inner div.box {
+div#content_inner div.text_block {
     float: left;
-    width: 320px;
-    margin: 10px 5px;
+    width: 300px;
+    margin: 10px 15px;
 }
 
 /*

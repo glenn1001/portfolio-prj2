@@ -1,33 +1,40 @@
-<table>
-    <tr>
-        <td>ID</td>
-        <td>URL</td>
-        <td>Module</td>
-        <td>Controller</td>
-        <td>Action</td>
-        <td>Generated</td>
-        <td>Paremeters</td>
-    </tr>
-    <?
-    foreach ($this->urlRewrites as $urlRewrite) {
-    ?>
-    <tr>
-        <td><?= $urlRewrite->id; ?></td>
-        <td><?= $urlRewrite->url; ?></td>
-        <td><?= $urlRewrite->module; ?></td>
-        <td><?= $urlRewrite->controller; ?></td>
-        <td><?= $urlRewrite->action; ?></td>
-        <td><?= $urlRewrite->generated; ?></td>
-        <td>
+<div id="title_outer">
+    <div id="title_inner">
+        <h1>URL Rewrites</h1>
+    </div>
+</div>
+<div id="content_inner">
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>URL</td>
+            <td>Module</td>
+            <td>Controller</td>
+            <td>Action</td>
+            <td>Generated</td>
+            <td>Paremeters</td>
+        </tr>
         <?
-        foreach ($urlRewrite->parameters as $parameter) {
-            echo $parameter->key . ' = ' .  $parameter->value . '<br />';
+        foreach ($this->urlRewrites as $urlRewrite) {
+        ?>
+        <tr>
+            <td><?= $urlRewrite->id; ?></td>
+            <td><?= $urlRewrite->url; ?></td>
+            <td><?= $urlRewrite->module; ?></td>
+            <td><?= $urlRewrite->controller; ?></td>
+            <td><?= $urlRewrite->action; ?></td>
+            <td><?= $urlRewrite->generated; ?></td>
+            <td>
+            <?
+            foreach ($urlRewrite->parameters as $parameter) {
+                echo $parameter->key . ' = ' .  $parameter->value . '<br />';
+            }
+            ?>
+            </td>
+        </tr>
+        <?
         }
         ?>
-        </td>
-    </tr>
-    <?
-    }
-    ?>
-</table>
-<a href="<?= $this->url(array('controller' => 'url', 'action' => 'generate')); ?>/" class="button">Generate</a>
+    </table>
+    <a href="<?= $this->url(array('controller' => 'url', 'action' => 'generate')); ?>/" class="button">Generate</a>
+</div>

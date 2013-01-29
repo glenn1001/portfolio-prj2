@@ -82,6 +82,7 @@
               <dbTableFile dbTableName="Project"/>
               <dbTableFile dbTableName="Slideshow"/>
               <dbTableFile dbTableName="Social"/>
+              <dbTableFile dbTableName="Text"/>
             </dbTableDirectory>
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
@@ -119,6 +120,13 @@
             <controllerFile controllerName="Auth">
               <actionMethod actionName="index"/>
               <actionMethod actionName="register"/>
+            </controllerFile>
+            <controllerFile controllerName="Index">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="create"/>
+              <actionMethod actionName="edit"/>
+              <actionMethod actionName="delete"/>
+              <actionMethod actionName="update"/>
             </controllerFile>
             <controllerFile controllerName="Page">
               <actionMethod actionName="index"/>
@@ -163,6 +171,7 @@
             <formFile formName="Project"/>
             <formFile formName="Slideshow"/>
             <formFile formName="Social"/>
+            <formFile formName="Text"/>
           </formsDirectory>
           <layoutsDirectory enabled="false"/>
           <modelsDirectory/>
@@ -245,6 +254,21 @@
                 <viewScriptFile forActionName="delete"/>
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Social">
+                <viewScriptFile forActionName="update"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Index">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Index">
+                <viewScriptFile forActionName="create"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Index">
+                <viewScriptFile forActionName="edit"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Index">
+                <viewScriptFile forActionName="delete"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Index">
                 <viewScriptFile forActionName="update"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>

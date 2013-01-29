@@ -1,1 +1,49 @@
-<h2>Welcome to the backend of the Portfolio of Glenn Blom.</h2>
+<div id="title_outer">
+    <div id="title_inner">
+        <h1>Text blocks on home page</h1>
+    </div>
+</div>
+<div id="content_inner">
+    <form id="text" method="post" action="/webmaster-panel/index/update/">
+        <table>
+            <tr>
+                <td>&nbsp;</td>
+                <td>Position</td>
+                <td style="min-width: 120px;">Title</td>
+                <td>Description</td>
+                <td>Status</td>
+            </tr>
+            <?
+            if (isset($this->text[0])){
+                foreach ($this->text as $text) {
+                ?>
+                <tr>
+                    <td><input type="checkbox" name="delete[<?= $text->id; ?>]" value="Y" /></td>
+                    <td><input type="text" size="3" name="update[<?= $text->id; ?>]" value="<?= $text->pos; ?>" /></td>
+                    <td><a href="<?= $this->url(array('action' => 'edit', 'id' => $text->id)); ?>/"><?= $text->title; ?></a></td>
+                    <td><a href="<?= $this->url(array('action' => 'edit', 'id' => $text->id)); ?>/"><?= $text->descr; ?></a></td>
+                    <td>
+                        <select name="status[<?= $text->id; ?>]">
+                            <option <? if ($text->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Active</option>
+                            <option <? if ($text->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactive</option>
+                        </select>
+                    </td>
+                </tr>
+                <?
+                }
+            } else {
+            ?>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="6">There are no text blocks!</td>
+                </tr>
+            <?
+            }
+            ?>
+        </table>
+    </form>
+    <a href="javascript: void(0);" onclick="selectAll();">Select all</a> / <a href="javascript: void(0);" onclick="deSelectAll();">Deselect all</a><br />
+    <button onclick="deleteText();">Delete selected</button>
+    <button onclick="updateTextPos();">Update all</button><br />
+    <a href="<?= $this->url(array('action' => 'create')); ?>/" class="button">Add new text block</a>
+</div>

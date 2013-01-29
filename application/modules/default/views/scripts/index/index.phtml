@@ -34,16 +34,11 @@
 </div>
 
 <div id="content_inner">
-    <div class="box">
-        <h2>Titel</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur justo mi, commodo vel dignissim a, placerat a felis. In euismod fringilla porttitor. Maecenas sed nibh id mi luctus consequat quis nec sem. Sed venenatis eleifend neque, ac pellentesque odio convallis et. Nulla mollis sem sit amet purus sodales nec gravida dolor venenatis. Maecenas lobortis erat non nisi tempus egestas. Fusce sed diam at tellus accumsan pharetra.</p>
+    <? foreach ($this->textBlocks as $textBlock) { ?>
+    <div class="text_block">
+        <h2><?= $textBlock->title; ?></h2>
+        <?= $textBlock->descr; ?>
+        <a class="button" href="<?= $textBlock->url; ?>">Lees meer</a>
     </div>
-    <div class="box">
-        <h2>Titel</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur justo mi, commodo vel dignissim a, placerat a felis. In euismod fringilla porttitor. Maecenas sed nibh id mi luctus consequat quis nec sem. Sed venenatis eleifend neque, ac pellentesque odio convallis et. Nulla mollis sem sit amet purus sodales nec gravida dolor venenatis. Maecenas lobortis erat non nisi tempus egestas. Fusce sed diam at tellus accumsan pharetra.</p>
-    </div>
-    <div class="box">
-        <h2>Titel</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur justo mi, commodo vel dignissim a, placerat a felis. In euismod fringilla porttitor. Maecenas sed nibh id mi luctus consequat quis nec sem. Sed venenatis eleifend neque, ac pellentesque odio convallis et. Nulla mollis sem sit amet purus sodales nec gravida dolor venenatis. Maecenas lobortis erat non nisi tempus egestas. Fusce sed diam at tellus accumsan pharetra.</p>
-    </div>
+    <? } ?>
 </div>

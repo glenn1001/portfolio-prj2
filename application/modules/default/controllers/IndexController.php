@@ -14,6 +14,11 @@ class Default_IndexController extends Zend_Controller_Action {
         $slideshow = $dbTableSlideshow->fetchAll("`status`='Y'", 'pos ASC');
 
         $this->view->slideshow = $slideshow;
+        
+        $dbTableText = new Default_Model_DbTable_Text();
+        $textBlocks = $dbTableText->fetchAll("`status`='Y'", 'pos ASC', 3);
+
+        $this->view->textBlocks = $textBlocks;
     }
 
 }

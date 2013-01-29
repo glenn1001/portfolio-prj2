@@ -38,7 +38,7 @@ class Model_Acl extends Zend_Acl {
         
         $this->allow('user', 'default:auth', 'logout');
         
-        $this->allow('admin', 'webmaster-panel:index', 'index');
+        $this->allow('admin', 'webmaster-panel:index', array('index','create','edit','delete','update'));
         $this->allow('admin', 'webmaster-panel:auth', 'logout');
         $this->allow('admin', 'webmaster-panel:slideshow', array('index','create','edit','delete','update'));
         $this->allow('admin', 'webmaster-panel:social', array('index','create','edit','delete','update'));

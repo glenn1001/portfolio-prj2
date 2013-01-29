@@ -1,3 +1,15 @@
+function deleteText() {
+    var form = document.getElementById('text');
+    form.action = '/webmaster-panel/index/delete/';
+    form.submit();
+}
+
+function updateTextPos() {
+    var form = document.getElementById('text');
+    form.action = '/webmaster-panel/index/update/';
+    form.submit();
+}
+
 function deleteSlideshow() {
     var form = document.getElementById('slideshow');
     form.action = '/webmaster-panel/slideshow/delete/';

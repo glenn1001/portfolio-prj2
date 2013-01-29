@@ -33,13 +33,11 @@
             </div>
             <div class="clear"></div>
             <div id="content_outer">
-                <div id="content_inner">
-                    <? if ($this->errorMsg != '') { ?>
-                        <div id="error"><?= $this->errorMsg; ?></div>
-                    <? } ?>
-                    <?= $this->layout()->content; ?>
-                    <div class="clear"></div>
-                </div>
+                <? if ($this->errorMsg != '') { ?>
+                    <div id="error"><?= $this->errorMsg; ?></div>
+                <? } ?>
+                <?= $this->layout()->content; ?>
+                <div class="clear"></div>
             </div>
         </div>
     </body>
