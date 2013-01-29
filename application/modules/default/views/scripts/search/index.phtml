@@ -1,0 +1,52 @@
+<div id="title_outer">
+    <div id="title_inner">
+        <h1>Zoekresultaten</h1>
+    </div>
+</div>
+<div id="content_inner">
+    <div>
+        <div>
+            <div class="search_header">
+                <h2>Projecten</h2>
+            </div>
+            <div class="search_header">
+                <h2>Pagina's</h2>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <?php for ($i = 0; $i < 10; $i++) { ?>
+            <?php if ($i < $this->count || $i == 0) { ?>
+                <div class="search_row">
+                    <?php if (isset($this->projects[$i])) { ?>
+                        <div class="search_result">
+                            <a href="/projecten<?= $this->projects[$i]->canonical; ?>">
+                                <img src="/img/projects/<?= $this->projects[$i]->img; ?>" alt="<?= $this->projects[$i]->title; ?>" title="<?= $this->projects[$i]->title; ?>" /><br />
+                                <h2><?= $this->projects[$i]->title; ?></h2>
+                                <p><?= $this->projects[$i]->meta_descr; ?></p>
+                            </a>
+                            <a href="/projecten<?= $this->projects[$i]->canonical; ?>" class="button">Lees meer</a>
+                        </div>
+                    <?php } elseif ($i == 0) { ?>
+                        <div class="search_result">
+                            Er zijn geen projecten gevonden!
+                        </div>
+                    <?php } ?>
+                    <?php if (isset($this->pages[$i])) { ?>
+                        <div class="search_result">
+                            <a href="<?= $this->pages[$i]->canonical; ?>">
+                                <h2><?= $this->pages[$i]->title; ?></h2>
+                                <p><?= $this->pages[$i]->meta_descr; ?></p>
+                            </a>
+                            <a href="<?= $this->pages[$i]->canonical; ?>" class="button">Lees meer</a>
+                        </div>
+                    <?php } elseif ($i == 0) { ?>
+                        <div class="search_result">
+                            Er zijn geen pagina's gevonden!
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="clear"></div>
+            <?php } ?>
+        <?php } ?>
+    </div>
+</div>

@@ -8,11 +8,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $this->bootstrap('layout');
         $layout = $this->getResource('layout');
         $view = $layout->getView();
+        $resources = $this->getOption('resources');
 
         $registry = Zend_Registry::getInstance();
         $registry->set('acl', $this->_acl);
         $registry->set('view', $view);
         $registry->set('contactinfo', $this->getOption('contact'));
+        $registry->set('dbConfig', $resources['db']);
     }
 
     protected function _initAutoload() {
@@ -39,6 +41,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $front->registerPlugin(new Plugin_UrlRewrite());
         $front->registerPlugin(new Plugin_Navigation());
         $front->registerPlugin(new Plugin_AccessCheck($this->_acl));
+        $front->registerPlugin(new Plugin_SearchForm());
         $front->registerPlugin(new Plugin_ContactForm());
     }
 

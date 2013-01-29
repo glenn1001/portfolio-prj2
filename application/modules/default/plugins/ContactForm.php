@@ -14,11 +14,14 @@ class Plugin_ContactForm extends Zend_Controller_Plugin_Abstract {
         $request = $this->getRequest();
         $this->_contactform = new Default_Form_Contact(null);
         if ($request->isPost()) {
-            if ($this->_contactform->isValid($this->_request->getPost())) {
-                $this->sendMessage();
-                $this->sendCopy();
-                $this->_contactform->reset();
-                $this->_view->contactSuccess = 'Bedankt voor uw bericht, ik zal hier z.s.m. op reageren.';
+            $post = $this->_request->getPost();
+            if ($post['submit'] == 'Verzenden') {
+                if ($this->_contactform->isValid($post)) {
+                    $this->sendMessage();
+                    $this->sendCopy();
+                    $this->_contactform->reset();
+                    $this->_view->contactSuccess = 'Bedankt voor uw bericht, ik zal hier z.s.m. op reageren.';
+                }
             }
         }
 
@@ -32,12 +35,12 @@ class Plugin_ContactForm extends Zend_Controller_Plugin_Abstract {
         $data = $this->_contactform->getValues();
 
         $viewParam = array(
-            'name'      => $data['contactform_name'],
-            'email'     => $data['contactform_email'],
-            'message'   => nl2br(htmlentities($data['contactform_message'])),
-            'ip'        => $_SERVER['REMOTE_ADDR']
+            'name' => $data['contactform_name'],
+            'email' => $data['contactform_email'],
+            'message' => nl2br(htmlentities($data['contactform_message'])),
+            'ip' => $_SERVER['REMOTE_ADDR']
         );
-        
+
         $registry = Zend_Registry::getInstance();
         $contactInfo = $registry->get('contactinfo');
         $email = $contactInfo['email'];
@@ -59,12 +62,12 @@ class Plugin_ContactForm extends Zend_Controller_Plugin_Abstract {
         $data = $this->_contactform->getValues();
 
         $viewParam = array(
-            'domain'    => $_SERVER['SERVER_NAME'],
-            'email'     => $data['contactform_email'],
-            'subject'   => $data['contactform_subject'],
-            'message'   => nl2br(htmlentities($data['contactform_message']))
+            'domain' => $_SERVER['SERVER_NAME'],
+            'email' => $data['contactform_email'],
+            'subject' => $data['contactform_subject'],
+            'message' => nl2br(htmlentities($data['contactform_message']))
         );
-        
+
         $mail = new Portfolio_HtmlTemplateMailer();
         $mail->setSubject($data['contactform_subject'])
                 ->addTo($data['contactform_email'], $data['contactform_name'])

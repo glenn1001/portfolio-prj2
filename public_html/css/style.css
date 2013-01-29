@@ -96,6 +96,10 @@ a:hover {
     color: white;
 }
 
+/*
+ * Navigation
+ */
+
 div#nav {
     position: relative;
     top: 20px;
@@ -145,6 +149,22 @@ div#nav ul li ul li:hover {
 div#nav ul li ul li a {
     padding: 5px 15px;
     background: none !important;
+}
+
+/*
+ * Search
+ */
+ 
+div#search {
+    position: relative;
+    top: 25px;
+    float: right;
+}
+
+div#search input[type="submit"] {
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 /*
@@ -308,6 +328,30 @@ div#slider_inner {
 #slideNumbers a.activeSlide {
     background: #0F3755;
     border-color: #0F3755;
+}
+
+/*
+ * Search page
+ */
+ 
+div.search_row {
+    border-top: 1px solid #aaaaaa;
+}
+
+div.search_header {
+    width: 465px;
+    float: left;
+    margin: 0 15px 10px;
+}
+
+div.search_header h2 {
+    font-size: 24px;
+}
+
+div.search_result {
+    width: 465px;
+    float: left;
+    padding: 20px 15px;
 }
 
 /*

@@ -11,6 +11,7 @@ class Model_Acl extends Zend_Acl {
                 ->add(new Zend_Acl_Resource('default:index'), 'default')
                 ->add(new Zend_Acl_Resource('default:error'), 'default')
                 ->add(new Zend_Acl_Resource('default:auth'), 'default')
+                ->add(new Zend_Acl_Resource('default:search'), 'default')
                 ->add(new Zend_Acl_Resource('default:project'), 'default')
                 ->add(new Zend_Acl_Resource('default:page'), 'default');
         
@@ -26,6 +27,7 @@ class Model_Acl extends Zend_Acl {
         $this->allow('guest', 'default:index', 'index');
         $this->allow('guest', 'default:error', 'error');
         $this->allow('guest', 'default:auth', 'login');
+        $this->allow('guest', 'default:search', 'index');
         $this->allow('guest', 'admn:auth', 'login');
         $this->allow('guest', 'default:project', array('index', 'view'));
         $this->allow('guest', 'default:page', 'index');
