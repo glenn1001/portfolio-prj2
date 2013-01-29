@@ -38,17 +38,13 @@
             <div id="footer_outer">
                 <div id="footer_inner">
                     <div>
-                        <h3>Projecten</h3>
+                        <h3>Laatste 10 projecten</h3>
                         <ul>
+                            <? foreach ($this->footerProjects as $project) { ?>
                             <li>
-                                <a href="#">Portfolio Zend Framework</a>
+                                <a href="/projecten<?= $project->canonical; ?>"><?= $project->title; ?></a>
                             </li>
-                            <li>
-                                <a href="#">Buckaroo koppeling</a>
-                            </li>
-                            <li>
-                                <a href="#">PostNL Checkpay koppeling</a>
-                            </li>
+                            <? } ?>
                         </ul>
                     </div>
                     <div>
