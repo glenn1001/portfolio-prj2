@@ -19,6 +19,15 @@
             <privilege>index</privilege>
         </slideshow>
         
+        <social>
+            <label>Social media</label>
+            <module>webmaster-panel</module>
+            <controller>social</controller>
+            <action>index</action>
+            <resource>webmaster-panel:social</resource>
+            <privilege>index</privilege>
+        </social>
+        
         <project>
             <label>Projects</label>
             <module>webmaster-panel</module>

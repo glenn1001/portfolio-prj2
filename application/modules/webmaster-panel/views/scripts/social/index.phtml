@@ -1,0 +1,42 @@
+<form id="social" method="post" action="/webmaster-panel/social/update/">
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Position</td>
+            <td>Image</td>
+            <td>Social</td>
+            <td>Status</td>
+        </tr>
+        <?
+        if (isset($this->social[0])){
+            foreach ($this->social as $social) {
+            ?>
+            <tr>
+                <td><input type="checkbox" name="delete[<?= $social->id; ?>]" value="Y" /></td>
+                <td><input type="text" size="3" name="update[<?= $social->id; ?>]" value="<?= $social->pos; ?>" /></td>
+                <td><a href="<?= $this->url(array('action' => 'edit', 'id' => $social->id)); ?>/"><img src="/img/social-media/<?= $social->icon; ?>" alt="<?= $social->title; ?>" title="<?= $social->title; ?>" style="width: 24px;" /></a></td>
+                <td><a href="<?= $this->url(array('action' => 'edit', 'id' => $social->id)); ?>/"><?= $social->title; ?></a></td>
+                <td>
+                    <select name="status[<?= $social->id; ?>]">
+                        <option <? if ($social->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Active</option>
+                        <option <? if ($social->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactive</option>
+                    </select>
+                </td>
+            </tr>
+            <?
+            }
+        } else {
+        ?>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="6">There is no Social Media!</td>
+            </tr>
+        <?
+        }
+        ?>
+    </table>
+</form>
+<a href="javascript: void(0);" onclick="selectAll();">Select all</a> / <a href="javascript: void(0);" onclick="deSelectAll();">Deselect all</a><br />
+<button onclick="deleteSocial();">Delete selected</button>
+<button onclick="updateSocialPos();">Update all</button><br />
+<a href="<?= $this->url(array('action' => 'create')); ?>/" class="button">Add new social</a>

@@ -10,6 +10,18 @@ function updateSlideshowPos() {
     form.submit();
 }
 
+function deleteSocial() {
+    var form = document.getElementById('social');
+    form.action = '/webmaster-panel/social/delete/';
+    form.submit();
+}
+
+function updateSocialPos() {
+    var form = document.getElementById('social');
+    form.action = '/webmaster-panel/social/update/';
+    form.submit();
+}
+
 function deleteProjects() {
     var form = document.getElementById('projects');
     form.action = '/webmaster-panel/project/delete/';

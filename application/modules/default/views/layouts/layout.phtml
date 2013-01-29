@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php echo $this->headTitle(); ?>
+        <?= $this->headTitle(); ?>
 
-        <?php echo $this->headMeta(); ?>
-
-
-        <?php echo $this->headLink()->appendStylesheet('/css/style.css'); ?>
+        <?= $this->headMeta(); ?>
 
 
-        <?php
+        <?= $this->headLink()->appendStylesheet('/css/style.css'); ?>
+
+
+        <?
         echo $this->headScript()->appendFile('/plugins/jquery/jquery-1.8.3.js')
                 ->appendFile('/plugins/jquery/jquery.cycle.all.js')
                 ->appendFile('/js/main.js');
@@ -20,9 +20,9 @@
         <div id="container">
             <div id="header_outer">
                 <div id="header_inner">
-                    <h1>Portfolio - Glenn Blom</h1>
+                    <p>Portfolio - Glenn Blom</p>
                     <div id="nav">
-                        <?php echo $this->navigation(); ?>
+                        <?= $this->navigation(); ?>
                     </div>
                     <div id="search">
                         <?= $this->searchForm; ?>
@@ -54,53 +54,27 @@
                     <div>
                         <h3>Social media</h3>
                         <ul class="social-media">
+                            <? foreach ($this->social as $social) { ?>
                             <li>
-                                <a href="https://github.com/glenn1001/" target="_blank">
-                                    <img src="/img/social-media/github.ico" alt="GitHub" title="GitHub" />
-                                    GitHub
+                                <a href="<?= $social->url; ?>" target="_blank">
+                                    <img src="/img/social-media/<?= $social->icon; ?>" alt="<?= $social->title; ?>" title="<?= $social->title; ?>" />
+                                    <?= $social->title; ?>
                                 </a>
                             </li>
-                            <li>
-                                <a href="http://www.linkedin.com/profile/view?id=74647824&trk=tab_pro" target="_blank">
-                                    <img src="/img/social-media/linkedin.ico" alt="LinkedIn" title="LinkedIn" />
-                                    LinkedIn
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://www.facebook.com/glenn.blom.9" target="_blank">
-                                    <img src="/img/social-media/facebook.ico" alt="Facebook" title="Facebook" />
-                                    Facebook
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://plus.google.com/113906563893465330742/posts" target="_blank">
-                                    <img src="/img/social-media/google+.ico" alt="Google+" title="Google+" />
-                                    Google+
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/glenn10011" target="_blank">
-                                    <img src="/img/social-media/twitter.ico" alt="Twitter" title="Twitter" />
-                                    Twitter
-                                </a>
-                            </li>
+                            <? } ?>
                         </ul>
                     </div>
                     <div class="contact">
                         <h3>Neem contact op</h3>
-                        <?php echo $this->contactform; ?>
+                        <?= $this->contactform; ?>
                     </div>
                 </div>
                 <div class="clear"></div>
             </div>
         </div>
-        
-        <?php
-        if (isset($this->contactSuccess)) {
-        ?>
-        <script type="text/javascript">alert('<?= $this->contactSuccess; ?>');</script>
-        <?php
-        }
-        ?>
+
+        <? if (isset($this->contactSuccess)) { ?>
+            <script type="text/javascript">alert('<?= $this->contactSuccess; ?>');</script>
+        <? } ?>
     </body>
 </html>

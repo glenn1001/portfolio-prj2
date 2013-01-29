@@ -3,16 +3,16 @@
     <head>
         <title><?= $this->head_info['title']; ?></title>
         <meta charset="utf-8" />
-        <?php if (!empty($this->head_info['meta_description'])) { ?>
+        <? if (!empty($this->head_info['meta_description'])) { ?>
             <meta name="description" content="<?= $this->head_info['meta_description']; ?>" />
-        <?php } ?>
-        <?php if (!empty($this->head_info['meta_keywords'])) { ?>
+        <? } ?>
+        <? if (!empty($this->head_info['meta_keywords'])) { ?>
             <meta name="keywords" content="<?= $this->head_info['meta_keywords']; ?>" />
-        <?php } ?>
+        <? } ?>
 
-        <?php if (!empty($this->head_info['canonical'])) { ?>
-            <link rel="canonical" href="<?php echo $this->head_info['canonical']; ?>" />
-        <?php } ?>
+        <? if (!empty($this->head_info['canonical'])) { ?>
+            <link rel="canonical" href="<?= $this->head_info['canonical']; ?>" />
+        <? } ?>
 
         <link rel="stylesheet" type="text/css" href="/webmaster-panel/css/style.css" />
         <script type="text/javascript" src="/webmaster-panel/js/main.js"></script>
@@ -25,18 +25,18 @@
         <div id="container">
             <div id="header_outer">
                 <div id="header_inner">
-                    <h1>Portfolio - Glenn Blom</h1>
+                    <p>Portfolio - Glenn Blom</p>
                     <div id="nav">
-                        <?php echo $this->navigation(); ?>
+                        <?= $this->navigation(); ?>
                     </div>
                 </div>
             </div>
             <div class="clear"></div>
             <div id="content_outer">
                 <div id="content_inner">
-                    <?php if ($this->errorMsg != '') { ?>
-                        <div id="error"><?php echo $this->errorMsg; ?></div>
-                    <?php } ?>
+                    <? if ($this->errorMsg != '') { ?>
+                        <div id="error"><?= $this->errorMsg; ?></div>
+                    <? } ?>
                     <?= $this->layout()->content; ?>
                     <div class="clear"></div>
                 </div>

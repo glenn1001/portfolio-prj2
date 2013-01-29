@@ -9,30 +9,30 @@
             <td>Show in navigation</td>
             <td style="min-width: 145px;">Example</td>
         </tr>
-        <?php
+        <?
         if (isset($this->pages[0])){
             foreach ($this->pages as $page) {
             ?>
             <tr>
-                <td><input type="checkbox" name="delete[<?php echo $page->id; ?>]" value="Y" /></td>
-                <td><input type="text" size="1" name="update[<?php echo $page->id; ?>]" value="<?php echo $page->pos; ?>" /></td>
-                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $page->id)); ?>/"><?php echo $page->title; ?></a></td>
-                <td><?php echo $page->path; ?></td>
+                <td><input type="checkbox" name="delete[<?= $page->id; ?>]" value="Y" /></td>
+                <td><input type="text" size="1" name="update[<?= $page->id; ?>]" value="<?= $page->pos; ?>" /></td>
+                <td><a href="<?= $this->url(array('action' => 'edit', 'id' => $page->id)); ?>/"><?= $page->title; ?></a></td>
+                <td><?= $page->path; ?></td>
                 <td>
-                    <select name="status[<?php echo $page->id; ?>]">
-                        <option <?php if ($page->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Active</option>
-                        <option <?php if ($page->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactive</option>
+                    <select name="status[<?= $page->id; ?>]">
+                        <option <? if ($page->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Active</option>
+                        <option <? if ($page->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactive</option>
                     </select>
                 </td>
                 <td>
-                    <select name="menu[<?php echo $page->id; ?>]">
-                        <option <?php if ($page->menu == 'Y'){echo 'selected="selected"';} ?> value="Y">Yes</option>
-                        <option <?php if ($page->menu == 'N'){echo 'selected="selected"';} ?>value="N">No</option>
+                    <select name="menu[<?= $page->id; ?>]">
+                        <option <? if ($page->menu == 'Y'){echo 'selected="selected"';} ?> value="Y">Yes</option>
+                        <option <? if ($page->menu == 'N'){echo 'selected="selected"';} ?>value="N">No</option>
                     </select>
                 </td>
-                <td><a href="<?php echo $page->canonical; ?>" target="_blank" class="button">View example</a></td>
+                <td><a href="<?= $page->canonical; ?>" target="_blank" class="button">View example</a></td>
             </tr>
-            <?php
+            <?
             }
         } else {
         ?>
@@ -40,7 +40,7 @@
                 <td>&nbsp;</td>
                 <td colspan="6">There are no pages!</td>
             </tr>
-        <?php
+        <?
         }
         ?>
     </table>
@@ -48,4 +48,4 @@
 <a href="javascript: void(0);" onclick="selectAll();">Select all</a> / <a href="javascript: void(0);" onclick="deSelectAll();">Deselect all</a><br />
 <button onclick="deletePages();">Delete selected</button>
 <button onclick="updatePagePos();">Update all</button><br />
-<a href="<?php echo $this->url(array('action' => 'create')); ?>/" class="button">Add new page</a>
+<a href="<?= $this->url(array('action' => 'create')); ?>/" class="button">Add new page</a>

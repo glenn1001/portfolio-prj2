@@ -9,30 +9,30 @@
             <td>Show in navigation</td>
             <td>Example</td>
         </tr>
-        <?php
+        <?
         if (isset($this->projects[0])){
             foreach ($this->projects as $project) {
             ?>
             <tr>
-                <td><input type="checkbox" name="delete[<?php echo $project->id; ?>]" value="Y" /></td>
-                <td><input type="text" size="1" name="update[<?php echo $project->id; ?>]" value="<?php echo $project->pos; ?>" /></td>
-                <td><img src="/img/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" style="width: 100px;" /></td>
-                <td><a href="<?php echo $this->url(array('action' => 'edit', 'id' => $project->id)); ?>/"><?php echo $project->title; ?></a></td>
+                <td><input type="checkbox" name="delete[<?= $project->id; ?>]" value="Y" /></td>
+                <td><input type="text" size="1" name="update[<?= $project->id; ?>]" value="<?= $project->pos; ?>" /></td>
+                <td><img src="/img/projects/<?= $project->img; ?>" alt="<?= $project->title; ?>" title="<?= $project->title; ?>" style="width: 100px;" /></td>
+                <td><a href="<?= $this->url(array('action' => 'edit', 'id' => $project->id)); ?>/"><?= $project->title; ?></a></td>
                 <td>
-                    <select name="status[<?php echo $project->id; ?>]">
-                        <option <?php if ($project->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Active</option>
-                        <option <?php if ($project->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactive</option>
+                    <select name="status[<?= $project->id; ?>]">
+                        <option <? if ($project->status == 'Y'){echo 'selected="selected"';} ?> value="Y">Active</option>
+                        <option <? if ($project->status == 'N'){echo 'selected="selected"';} ?>value="N">Inactive</option>
                     </select>
                 </td>
                 <td>
-                    <select name="menu[<?php echo $project->id; ?>]">
-                        <option <?php if ($project->menu == 'Y'){echo 'selected="selected"';} ?> value="Y">Yes</option>
-                        <option <?php if ($project->menu == 'N'){echo 'selected="selected"';} ?>value="N">No</option>
+                    <select name="menu[<?= $project->id; ?>]">
+                        <option <? if ($project->menu == 'Y'){echo 'selected="selected"';} ?> value="Y">Yes</option>
+                        <option <? if ($project->menu == 'N'){echo 'selected="selected"';} ?>value="N">No</option>
                     </select>
                 </td>
-                <td><a href="/projecten<?php echo $project->canonical; ?>" target="_blank" class="button">View example</a></td>
+                <td><a href="/projecten<?= $project->canonical; ?>" target="_blank" class="button">View example</a></td>
             </tr>
-            <?php
+            <?
             }
         } else {
         ?>
@@ -40,7 +40,7 @@
                 <td>&nbsp;</td>
                 <td colspan="6">There are no projects!</td>
             </tr>
-        <?php
+        <?
         }
         ?>
     </table>
@@ -48,4 +48,4 @@
 <a href="javascript: void(0);" onclick="selectAll();">Select all</a> / <a href="javascript: void(0);" onclick="deSelectAll();">Deselect all</a><br />
 <button onclick="deleteProjects();">Delete selected</button>
 <button onclick="updateProjectPos();">Update all</button><br />
-<a href="<?php echo $this->url(array('action' => 'create')); ?>/" class="button">Add new project</a>
+<a href="<?= $this->url(array('action' => 'create')); ?>/" class="button">Add new project</a>

@@ -14,10 +14,10 @@
             </div>
             <div class="clear"></div>
         </div>
-        <?php for ($i = 0; $i < 10; $i++) { ?>
-            <?php if ($i < $this->count || $i == 0) { ?>
+        <? for ($i = 0; $i < 10; $i++) { ?>
+            <? if ($i < $this->count || $i == 0) { ?>
                 <div class="search_row">
-                    <?php if (isset($this->projects[$i])) { ?>
+                    <? if (isset($this->projects[$i])) { ?>
                         <div class="search_result">
                             <a href="/projecten<?= $this->projects[$i]->canonical; ?>">
                                 <img src="/img/projects/<?= $this->projects[$i]->img; ?>" alt="<?= $this->projects[$i]->title; ?>" title="<?= $this->projects[$i]->title; ?>" /><br />
@@ -26,12 +26,12 @@
                             </a>
                             <a href="/projecten<?= $this->projects[$i]->canonical; ?>" class="button">Lees meer</a>
                         </div>
-                    <?php } elseif ($i == 0) { ?>
+                    <? } elseif ($i == 0) { ?>
                         <div class="search_result">
                             Er zijn geen projecten gevonden!
                         </div>
-                    <?php } ?>
-                    <?php if (isset($this->pages[$i])) { ?>
+                    <? } ?>
+                    <? if (isset($this->pages[$i])) { ?>
                         <div class="search_result">
                             <a href="<?= $this->pages[$i]->canonical; ?>">
                                 <h2><?= $this->pages[$i]->title; ?></h2>
@@ -39,14 +39,14 @@
                             </a>
                             <a href="<?= $this->pages[$i]->canonical; ?>" class="button">Lees meer</a>
                         </div>
-                    <?php } elseif ($i == 0) { ?>
+                    <? } elseif ($i == 0) { ?>
                         <div class="search_result">
                             Er zijn geen pagina's gevonden!
                         </div>
-                    <?php } ?>
+                    <? } ?>
                 </div>
                 <div class="clear"></div>
-            <?php } ?>
-        <?php } ?>
+            <? } ?>
+        <? } ?>
     </div>
 </div>

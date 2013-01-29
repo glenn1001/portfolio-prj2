@@ -42,6 +42,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $front->registerPlugin(new Plugin_Navigation());
         $front->registerPlugin(new Plugin_AccessCheck($this->_acl));
         $front->registerPlugin(new Plugin_SearchForm());
+        $front->registerPlugin(new Plugin_Social());
         $front->registerPlugin(new Plugin_ContactForm());
     }
 

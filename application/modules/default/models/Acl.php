@@ -19,6 +19,7 @@ class Model_Acl extends Zend_Acl {
                 ->add(new Zend_Acl_Resource('webmaster-panel:index'), 'webmaster-panel')
                 ->add(new Zend_Acl_Resource('webmaster-panel:auth'), 'webmaster-panel')
                 ->add(new Zend_Acl_Resource('webmaster-panel:slideshow'), 'webmaster-panel')
+                ->add(new Zend_Acl_Resource('webmaster-panel:social'), 'webmaster-panel')
                 ->add(new Zend_Acl_Resource('webmaster-panel:project'), 'webmaster-panel')
                 ->add(new Zend_Acl_Resource('webmaster-panel:page'), 'webmaster-panel')
                 ->add(new Zend_Acl_Resource('webmaster-panel:url'), 'webmaster-panel')
@@ -40,6 +41,7 @@ class Model_Acl extends Zend_Acl {
         $this->allow('admin', 'webmaster-panel:index', 'index');
         $this->allow('admin', 'webmaster-panel:auth', 'logout');
         $this->allow('admin', 'webmaster-panel:slideshow', array('index','create','edit','delete','update'));
+        $this->allow('admin', 'webmaster-panel:social', array('index','create','edit','delete','update'));
         $this->allow('admin', 'webmaster-panel:project', array('index','create','edit','delete','update'));
         $this->allow('admin', 'webmaster-panel:page', array('index','create','edit','delete','update'));
         $this->allow('admin', 'webmaster-panel:url', array('index','generate'));

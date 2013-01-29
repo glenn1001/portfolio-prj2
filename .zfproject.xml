@@ -81,6 +81,7 @@
               <dbTableFile dbTableName="Page"/>
               <dbTableFile dbTableName="Project"/>
               <dbTableFile dbTableName="Slideshow"/>
+              <dbTableFile dbTableName="Social"/>
             </dbTableDirectory>
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
@@ -148,12 +149,20 @@
               <actionMethod actionName="delete"/>
               <actionMethod actionName="update"/>
             </controllerFile>
+            <controllerFile controllerName="Social">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="create"/>
+              <actionMethod actionName="edit"/>
+              <actionMethod actionName="delete"/>
+              <actionMethod actionName="update"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false">
             <formFile formName="Login"/>
             <formFile formName="Page"/>
             <formFile formName="Project"/>
             <formFile formName="Slideshow"/>
+            <formFile formName="Social"/>
           </formsDirectory>
           <layoutsDirectory enabled="false"/>
           <modelsDirectory/>
@@ -223,6 +232,21 @@
               <viewControllerScriptsDirectory forControllerName="Slideshow">
                 <viewScriptFile forActionName="update"/>
               </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Social">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Social">
+                <viewScriptFile forActionName="create"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Social">
+                <viewScriptFile forActionName="edit"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Social">
+                <viewScriptFile forActionName="delete"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Social">
+                <viewScriptFile forActionName="update"/>
+              </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>
             <viewFiltersDirectory/>
@@ -237,6 +261,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="1">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

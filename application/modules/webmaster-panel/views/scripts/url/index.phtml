@@ -8,26 +8,26 @@
         <td>Generated</td>
         <td>Paremeters</td>
     </tr>
-    <?php
+    <?
     foreach ($this->urlRewrites as $urlRewrite) {
     ?>
     <tr>
-        <td><?php echo $urlRewrite->id; ?></td>
-        <td><?php echo $urlRewrite->url; ?></td>
-        <td><?php echo $urlRewrite->module; ?></td>
-        <td><?php echo $urlRewrite->controller; ?></td>
-        <td><?php echo $urlRewrite->action; ?></td>
-        <td><?php echo $urlRewrite->generated; ?></td>
+        <td><?= $urlRewrite->id; ?></td>
+        <td><?= $urlRewrite->url; ?></td>
+        <td><?= $urlRewrite->module; ?></td>
+        <td><?= $urlRewrite->controller; ?></td>
+        <td><?= $urlRewrite->action; ?></td>
+        <td><?= $urlRewrite->generated; ?></td>
         <td>
-        <?php
+        <?
         foreach ($urlRewrite->parameters as $parameter) {
             echo $parameter->key . ' = ' .  $parameter->value . '<br />';
         }
         ?>
         </td>
     </tr>
-    <?php
+    <?
     }
     ?>
 </table>
-<a href="<?php echo $this->url(array('controller' => 'url', 'action' => 'generate')); ?>/" class="button">Generate</a>
+<a href="<?= $this->url(array('controller' => 'url', 'action' => 'generate')); ?>/" class="button">Generate</a>
