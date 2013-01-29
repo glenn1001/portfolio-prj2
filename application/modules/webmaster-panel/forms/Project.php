@@ -1,10 +1,10 @@
 <?php
 
-class Admn_Form_Page extends Zend_Form {
-
+class WebmasterPanel_Form_Project extends Zend_Form {
+    
     private $_id_value = '';
+    private $_img_value = '';
     private $_title_value = '';
-    private $_parent_id_value = '';
     private $_descr_value = '';
     private $_meta_descr_value = '';
     private $_meta_keywords_value = '';
@@ -15,8 +15,8 @@ class Admn_Form_Page extends Zend_Form {
 
     private function setValues($data) {
         $this->_id_value = $data->id;
+        $this->_img_value = $data->img;
         $this->_title_value = $data->title;
-        $this->_parent_id_value = $data->parent_id;
         $this->_descr_value = $data->descr;
         $this->_meta_descr_value = $data->meta_descr;
         $this->_meta_keywords_value = $data->meta_keywords;
@@ -26,26 +26,24 @@ class Admn_Form_Page extends Zend_Form {
         $this->_menu_value = $data->menu;
     }
 
-    public function __construct($submitLabel, $pages, $data = null, $option = null) {
+    public function __construct($submitLabel, $data = null, $option = null) {
         parent::__construct($option);
 
         if ($data != null) {
             $this->setValues($data);
         }
 
-        $this->setName('page');
-
+        $this->setName('project');
+        
+        $img = new Zend_Form_Element_Text('img');
+        $img->setLabel('Image:')
+                ->setValue($this->_img_value);
+        
         $title = new Zend_Form_Element_Text('title');
         $title->setLabel('Title:')
                 ->setRequired(true)
                 ->setFilters(array('StringTrim'))
                 ->setValue($this->_title_value);
-
-        $parent_id = new Zend_Form_Element_Select('parent_id');
-        $parent_id = $this->setParentOptions($parent_id, $pages);
-        $parent_id->setLabel('Parent page:')
-                ->setValue($this->_parent_id_value)
-                ->setValidators(array('Int'));
 
         $descr = new Zend_Form_Element_Textarea('descr');
         $descr->setLabel('Description:')
@@ -95,27 +93,9 @@ class Admn_Form_Page extends Zend_Form {
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setLabel($submitLabel);
 
-        $this->addElements(array($title, $parent_id, $descr, $meta_descr, $meta_keywords, $canonical, $pos, $status, $menu, $submit));
+        $this->addElements(array($img, $title, $descr, $meta_descr, $meta_keywords, $canonical, $pos, $status, $menu, $submit));
         $this->setMethod('post');
         $this->setAction('');
-    }
-
-    private function setParentOptions($element, $pages) {
-        $element->addMultiOptions(array(
-            0 => 'None'
-        ));
-        
-        if (is_array($pages)) {
-            foreach ($pages as $page) {
-                if ($this->_id_value != $page->id && $this->_id_value != $page->parent_id) {
-                    $element->addMultiOptions(array(
-                        $page->id => $page->path
-                    ));
-                }
-            }
-        }
-
-        return $element;
     }
 
 }

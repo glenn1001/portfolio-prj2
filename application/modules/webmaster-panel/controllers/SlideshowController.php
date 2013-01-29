@@ -1,6 +1,6 @@
 <?php
 
-class Admn_SlideshowController extends Zend_Controller_Action {
+class WebmasterPanel_SlideshowController extends Zend_Controller_Action {
 
     public function indexAction() {
         $dbTableSlideshow = new Default_Model_DbTable_Slideshow();
@@ -11,7 +11,7 @@ class Admn_SlideshowController extends Zend_Controller_Action {
 
     public function createAction() {
         $request = $this->getRequest();
-        $form = new Admn_Form_Slideshow('Add');
+        $form = new WebmasterPanel_Form_Slideshow('Add');
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
                 $data = $form->getValues();
@@ -36,7 +36,7 @@ class Admn_SlideshowController extends Zend_Controller_Action {
                 }
 
                 $dbTableSlideshow->insert($data);
-                $this->_redirect('/admn/slideshow/');
+                $this->_redirect('/webmaster-panel/slideshow/');
             }
         }
         $this->view->form = $form;
@@ -48,7 +48,7 @@ class Admn_SlideshowController extends Zend_Controller_Action {
         if ($slideshowid == false) {
             $error = new Zend_Session_Namespace('error');
             $error->msg = "Parameter 'id' is missing!";
-            $this->_redirect('/admn/slideshow/');
+            $this->_redirect('/webmaster-panel/slideshow/');
         }
 
         // create object and fetch row of the current slideshow
@@ -59,11 +59,11 @@ class Admn_SlideshowController extends Zend_Controller_Action {
         if (!isset($slideshow->id)) {
             $error = new Zend_Session_Namespace('error');
             $error->msg = "This slideshow doesn't exists!";
-            $this->_redirect('/admn/slideshow/');
+            $this->_redirect('/webmaster-panel/slideshow/');
         }
 
         $request = $this->getRequest();
-        $form = new Admn_Form_Slideshow('Update', $slideshow);
+        $form = new WebmasterPanel_Form_Slideshow('Update', $slideshow);
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
                 $data = $form->getValues();
@@ -71,7 +71,7 @@ class Admn_SlideshowController extends Zend_Controller_Action {
 
                 $dbTableSlideshow = new Default_Model_DbTable_Slideshow();
                 $dbTableSlideshow->update($data, "`id`='$slideshowid'");
-                $this->_redirect('/admn/slideshow/');
+                $this->_redirect('/webmaster-panel/slideshow/');
             }
         }
         $this->view->form = $form;
@@ -87,7 +87,7 @@ class Admn_SlideshowController extends Zend_Controller_Action {
             }
         }
 
-        $this->_redirect('/admn/slideshow/');
+        $this->_redirect('/webmaster-panel/slideshow/');
     }
 
     public function updateAction() {
@@ -102,7 +102,7 @@ class Admn_SlideshowController extends Zend_Controller_Action {
             }
         }
 
-        $this->_redirect('/admn/slideshow/');
+        $this->_redirect('/webmaster-panel/slideshow/');
     }
 
 }

@@ -15,35 +15,35 @@ class Model_Acl extends Zend_Acl {
                 ->add(new Zend_Acl_Resource('default:project'), 'default')
                 ->add(new Zend_Acl_Resource('default:page'), 'default');
         
-        $this->add(new Zend_Acl_Resource('admn'))
-                ->add(new Zend_Acl_Resource('admn:index'), 'admn')
-                ->add(new Zend_Acl_Resource('admn:auth'), 'admn')
-                ->add(new Zend_Acl_Resource('admn:slideshow'), 'admn')
-                ->add(new Zend_Acl_Resource('admn:project'), 'admn')
-                ->add(new Zend_Acl_Resource('admn:page'), 'admn')
-                ->add(new Zend_Acl_Resource('admn:url'), 'admn')
-                ->add(new Zend_Acl_Resource('admn:xml'), 'admn');
+        $this->add(new Zend_Acl_Resource('webmaster-panel'))
+                ->add(new Zend_Acl_Resource('webmaster-panel:index'), 'webmaster-panel')
+                ->add(new Zend_Acl_Resource('webmaster-panel:auth'), 'webmaster-panel')
+                ->add(new Zend_Acl_Resource('webmaster-panel:slideshow'), 'webmaster-panel')
+                ->add(new Zend_Acl_Resource('webmaster-panel:project'), 'webmaster-panel')
+                ->add(new Zend_Acl_Resource('webmaster-panel:page'), 'webmaster-panel')
+                ->add(new Zend_Acl_Resource('webmaster-panel:url'), 'webmaster-panel')
+                ->add(new Zend_Acl_Resource('webmaster-panel:xml'), 'webmaster-panel');
         
         $this->allow('guest', 'default:index', 'index');
         $this->allow('guest', 'default:error', 'error');
         $this->allow('guest', 'default:auth', 'login');
         $this->allow('guest', 'default:search', 'index');
-        $this->allow('guest', 'admn:auth', 'login');
+        $this->allow('guest', 'webmaster-panel:auth', 'login');
         $this->allow('guest', 'default:project', array('index', 'view'));
         $this->allow('guest', 'default:page', 'index');
         
         $this->deny('user', 'default:auth', 'login');
-        $this->deny('user', 'admn:auth', 'login');
+        $this->deny('user', 'webmaster-panel:auth', 'login');
         
         $this->allow('user', 'default:auth', 'logout');
         
-        $this->allow('admin', 'admn:index', 'index');
-        $this->allow('admin', 'admn:auth', 'logout');
-        $this->allow('admin', 'admn:slideshow', array('index','create','edit','delete','update'));
-        $this->allow('admin', 'admn:project', array('index','create','edit','delete','update'));
-        $this->allow('admin', 'admn:page', array('index','create','edit','delete','update'));
-        $this->allow('admin', 'admn:url', array('index','generate'));
-        $this->allow('admin', 'admn:xml', array('index','generate-navigation'));
+        $this->allow('admin', 'webmaster-panel:index', 'index');
+        $this->allow('admin', 'webmaster-panel:auth', 'logout');
+        $this->allow('admin', 'webmaster-panel:slideshow', array('index','create','edit','delete','update'));
+        $this->allow('admin', 'webmaster-panel:project', array('index','create','edit','delete','update'));
+        $this->allow('admin', 'webmaster-panel:page', array('index','create','edit','delete','update'));
+        $this->allow('admin', 'webmaster-panel:url', array('index','generate'));
+        $this->allow('admin', 'webmaster-panel:xml', array('index','generate-navigation'));
     }
 
 }

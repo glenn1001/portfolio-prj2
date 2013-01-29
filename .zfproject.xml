@@ -112,7 +112,7 @@
             <viewFiltersDirectory/>
           </viewsDirectory>
         </moduleDirectory>
-        <moduleDirectory moduleName="admn">
+        <moduleDirectory moduleName="webmaster-panel">
           <configsDirectory enabled="false"/>
           <controllersDirectory>
             <controllerFile controllerName="Auth">

@@ -3,64 +3,64 @@
     <nav>
         <home>
             <label>Home</label>
-            <module>admn</module>
+            <module>webmaster-panel</module>
             <controller>index</controller>
             <action>index</action>
-            <resource>admn:index</resource>
+            <resource>webmaster-panel:index</resource>
             <privilege>index</privilege>
         </home>
         
         <slideshow>
             <label>Slideshow</label>
-            <module>admn</module>
+            <module>webmaster-panel</module>
             <controller>slideshow</controller>
             <action>index</action>
-            <resource>admn:slideshow</resource>
+            <resource>webmaster-panel:slideshow</resource>
             <privilege>index</privilege>
         </slideshow>
         
         <project>
             <label>Projects</label>
-            <module>admn</module>
+            <module>webmaster-panel</module>
             <controller>project</controller>
             <action>index</action>
-            <resource>admn:project</resource>
+            <resource>webmaster-panel:project</resource>
             <privilege>index</privilege>
         </project>
         
         <page>
             <label>Pages</label>
-            <module>admn</module>
+            <module>webmaster-panel</module>
             <controller>page</controller>
             <action>index</action>
-            <resource>admn:page</resource>
+            <resource>webmaster-panel:page</resource>
             <privilege>index</privilege>
         </page>
         
         <url>
             <label>URL rewrites</label>
-            <module>admn</module>
+            <module>webmaster-panel</module>
             <controller>url</controller>
             <action>index</action>
-            <resource>admn:url</resource>
+            <resource>webmaster-panel:url</resource>
             <privilege>index</privilege>
         </url>
         
         <xml>
             <label>Generate XML</label>
-            <module>admn</module>
+            <module>webmaster-panel</module>
             <controller>xml</controller>
             <action>index</action>
-            <resource>admn:xml</resource>
+            <resource>webmaster-panel:xml</resource>
             <privilege>index</privilege>
         </xml>
         
         <logout>
             <label>Logout</label>
-            <module>admn</module>
+            <module>webmaster-panel</module>
             <controller>auth</controller>
             <action>logout</action>
-            <resource>admn:auth</resource>
+            <resource>webmaster-panel:auth</resource>
             <privilege>logout</privilege>
         </logout>
     </nav>

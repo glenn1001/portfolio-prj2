@@ -1,6 +1,6 @@
 <?php
 
-class Admn_UrlController extends Zend_Controller_Action {
+class WebmasterPanel_UrlController extends Zend_Controller_Action {
 
     private $_dbTableUrlRewrite;
     private $_dbTableUrlRewriteParameter;
@@ -24,7 +24,7 @@ class Admn_UrlController extends Zend_Controller_Action {
         $this->generateProjectUrls();
         $this->generatePageUrls();
         
-        $this->redirect('/admn/url/');
+        $this->redirect('/webmaster-panel/url/');
     }
 
     private function generateProjectUrls() {

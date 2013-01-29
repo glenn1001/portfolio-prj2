@@ -1,6 +1,6 @@
 <?php
 
-class Admn_Form_Login extends Zend_Form {
+class WebmasterPanel_Form_Login extends Zend_Form {
 
     public function __construct($option = null) {
         parent::__construct($option);
@@ -23,7 +23,7 @@ class Admn_Form_Login extends Zend_Form {
 
         $this->addElements(array($email, $password, $login));
         $this->setMethod('post');
-        $this->setAction(Zend_Controller_Front::getInstance()->getBaseUrl() . '/admn/auth/login/');
+        $this->setAction(Zend_Controller_Front::getInstance()->getBaseUrl() . '/webmaster-panel/auth/login/');
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Admn_PageController extends Zend_Controller_Action {
+class WebmasterPanel_PageController extends Zend_Controller_Action {
 
     public function init() {
         /* Initialize action controller here */
@@ -18,7 +18,7 @@ class Admn_PageController extends Zend_Controller_Action {
         $pages = $dbTablePage->getPagesByParent();
         
         $request = $this->getRequest();
-        $form = new Admn_Form_Page('Add', $pages);
+        $form = new WebmasterPanel_Form_Page('Add', $pages);
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
                 $data = $form->getValues();
@@ -38,7 +38,7 @@ class Admn_PageController extends Zend_Controller_Action {
                 }
 
                 $dbTablePage->insert($data);
-                $this->_redirect('/admn/page/');
+                $this->_redirect('/webmaster-panel/page/');
             }
         }
         $this->view->form = $form;
@@ -50,7 +50,7 @@ class Admn_PageController extends Zend_Controller_Action {
         if ($pageid == false) {
             $error = new Zend_Session_Namespace('error');
             $error->msg = "Parameter 'id' is missing!";
-            $this->_redirect('/admn/page/');
+            $this->_redirect('/webmaster-panel/page/');
         }
         
         // create object and fetch row of the current page
@@ -61,13 +61,13 @@ class Admn_PageController extends Zend_Controller_Action {
         if (!isset($page->id)) {
             $error = new Zend_Session_Namespace('error');
             $error->msg = "This page doesn't exists!";
-            $this->_redirect('/admn/page/');
+            $this->_redirect('/webmaster-panel/page/');
         }
         
         $pages = $dbTablePage->getPagesByParent();
 
         $request = $this->getRequest();
-        $form = new Admn_Form_Page('Update', $pages, $page);
+        $form = new WebmasterPanel_Form_Page('Update', $pages, $page);
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
                 $data = $form->getValues();
@@ -75,7 +75,7 @@ class Admn_PageController extends Zend_Controller_Action {
 
                 $dbTablePage = new Default_Model_DbTable_Page();
                 $dbTablePage->update($data, "`id`='$pageid'");
-                $this->_redirect('/admn/page/');
+                $this->_redirect('/webmaster-panel/page/');
             }
         }
         $this->view->form = $form;
@@ -91,7 +91,7 @@ class Admn_PageController extends Zend_Controller_Action {
             }
         }
 
-        $this->_redirect('/admn/page/');
+        $this->_redirect('/webmaster-panel/page/');
     }
 
     public function updateAction() {
@@ -106,7 +106,7 @@ class Admn_PageController extends Zend_Controller_Action {
             }
         }
 
-        $this->_redirect('/admn/page/');
+        $this->_redirect('/webmaster-panel/page/');
     }
 
 }

@@ -1,36 +1,36 @@
 function deleteSlideshow() {
     var form = document.getElementById('slideshow');
-    form.action = '/admn/slideshow/delete/';
+    form.action = '/webmaster-panel/slideshow/delete/';
     form.submit();
 }
 
 function updateSlideshowPos() {
     var form = document.getElementById('slideshow');
-    form.action = '/admn/slideshow/update/';
+    form.action = '/webmaster-panel/slideshow/update/';
     form.submit();
 }
 
 function deleteProjects() {
     var form = document.getElementById('projects');
-    form.action = '/admn/project/delete/';
+    form.action = '/webmaster-panel/project/delete/';
     form.submit();
 }
 
 function updateProjectPos() {
     var form = document.getElementById('projects');
-    form.action = '/admn/project/update/';
+    form.action = '/webmaster-panel/project/update/';
     form.submit();
 }
 
 function deletePages() {
     var form = document.getElementById('pages');
-    form.action = '/admn/page/delete/';
+    form.action = '/webmaster-panel/page/delete/';
     form.submit();
 }
 
 function updatePagePos() {
     var form = document.getElementById('pages');
-    form.action = '/admn/page/update/';
+    form.action = '/webmaster-panel/page/update/';
     form.submit();
 }
 

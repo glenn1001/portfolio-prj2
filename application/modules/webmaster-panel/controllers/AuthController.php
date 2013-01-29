@@ -1,6 +1,6 @@
 <?php
 
-class Admn_AuthController extends Zend_Controller_Action {
+class WebmasterPanel_AuthController extends Zend_Controller_Action {
 
     public function init() {
         
@@ -8,11 +8,11 @@ class Admn_AuthController extends Zend_Controller_Action {
 
     public function loginAction() {
         if (Zend_Auth::getInstance()->hasIdentity()) {
-            $this->_redirect('/admn/');
+            $this->_redirect('/webmaster-panel/');
         }
 
         $request = $this->getRequest();
-        $form = new Admn_Form_Login();
+        $form = new WebmasterPanel_Form_Login();
 
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
@@ -33,7 +33,7 @@ class Admn_AuthController extends Zend_Controller_Action {
                     $authStorage = $auth->getStorage();
                     $authStorage->write($identity);
 
-                    $this->_redirect('/admn/');
+                    $this->_redirect('/webmaster-panel/');
                 } else {
                     $this->view->errorMessage = 'User name and password combination is incorrect';
                 }
@@ -45,7 +45,7 @@ class Admn_AuthController extends Zend_Controller_Action {
 
     public function logoutAction() {
         Zend_Auth::getInstance()->clearIdentity();
-        $this->_redirect('/admn/auth/login/');
+        $this->_redirect('/webmaster-panel/auth/login/');
     }
 
     private function getAuthAdapter() {

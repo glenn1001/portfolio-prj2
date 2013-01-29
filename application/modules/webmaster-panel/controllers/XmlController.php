@@ -1,6 +1,6 @@
 <?php
 
-class Admn_XmlController extends Zend_Controller_Action {
+class WebmasterPanel_XmlController extends Zend_Controller_Action {
 
     private $_xml;
     private $_nav;
@@ -36,7 +36,7 @@ class Admn_XmlController extends Zend_Controller_Action {
         $file = APPLICATION_PATH . '/modules/default/configs/navigation.xml';
         $this->writeXML($file, $output);
         
-        $this->_redirect('/admn/xml/');
+        $this->_redirect('/webmaster-panel/xml/');
     }
 
     private function generateNavigationHome() {

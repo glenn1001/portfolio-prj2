@@ -1,6 +1,6 @@
 <?php
 
-class Admn_ProjectController extends Zend_Controller_Action {
+class WebmasterPanel_ProjectController extends Zend_Controller_Action {
 
     public function indexAction() {
         $dbTableProject = new Default_Model_DbTable_Project();
@@ -11,7 +11,7 @@ class Admn_ProjectController extends Zend_Controller_Action {
 
     public function createAction() {
         $request = $this->getRequest();
-        $form = new Admn_Form_Project('Add');
+        $form = new WebmasterPanel_Form_Project('Add');
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
                 $data = $form->getValues();
@@ -36,7 +36,7 @@ class Admn_ProjectController extends Zend_Controller_Action {
                 }
 
                 $dbTableProject->insert($data);
-                $this->_redirect('/admn/project/');
+                $this->_redirect('/webmaster-panel/project/');
             }
         }
         $this->view->form = $form;
@@ -48,7 +48,7 @@ class Admn_ProjectController extends Zend_Controller_Action {
         if ($projectid == false) {
             $error = new Zend_Session_Namespace('error');
             $error->msg = "Parameter 'id' is missing!";
-            $this->_redirect('/admn/project/');
+            $this->_redirect('/webmaster-panel/project/');
         }
         
         // create object and fetch row of the current project
@@ -59,11 +59,11 @@ class Admn_ProjectController extends Zend_Controller_Action {
         if (!isset($project->id)) {
             $error = new Zend_Session_Namespace('error');
             $error->msg = "This project doesn't exists!";
-            $this->_redirect('/admn/project/');
+            $this->_redirect('/webmaster-panel/project/');
         }
         
         $request = $this->getRequest();
-        $form = new Admn_Form_Project('Update', $project);
+        $form = new WebmasterPanel_Form_Project('Update', $project);
         if ($request->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
                 $data = $form->getValues();
@@ -71,7 +71,7 @@ class Admn_ProjectController extends Zend_Controller_Action {
 
                 $dbTableProject = new Default_Model_DbTable_Project();
                 $dbTableProject->update($data, "`id`='$projectid'");
-                $this->_redirect('/admn/project/');
+                $this->_redirect('/webmaster-panel/project/');
             }
         }
         $this->view->form = $form;
@@ -87,7 +87,7 @@ class Admn_ProjectController extends Zend_Controller_Action {
             }
         }
 
-        $this->_redirect('/admn/project/');
+        $this->_redirect('/webmaster-panel/project/');
     }
 
     public function updateAction() {
@@ -102,7 +102,7 @@ class Admn_ProjectController extends Zend_Controller_Action {
             }
         }
 
-        $this->_redirect('/admn/project/');
+        $this->_redirect('/webmaster-panel/project/');
     }
 
 }
