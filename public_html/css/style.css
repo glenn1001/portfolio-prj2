@@ -315,9 +315,9 @@ div#slider_inner {
  */
 
  div.projects div.project {
-     width: 330px;
+     width: 300px;
      float: left;
-     margin: 20px 0;
+     margin: 20px 15px;
  }
  
  div.projects div.project img {

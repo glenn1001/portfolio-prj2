@@ -1,15 +1,22 @@
 <div id="content_inner">
     <div class="projects">
         <?php
+        $i = 0;
         foreach ($this->projects as $project) {
             ?>
             <div class="project">
-                <img src="/img/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" /><br />
-                <?php echo $project->title; ?><br />
-                <?php echo $project->meta_descr; ?><br />
+                <a href="/projecten<?php echo $project->canonical; ?>">
+                    <img src="/img/projects/<?php echo $project->img; ?>" alt="<?php echo $project->title; ?>" title="<?php echo $project->title; ?>" />
+                    <h2><?php echo $project->title; ?></h2>
+                    <p><?php echo nl2br($project->meta_descr); ?></p>
+                </a>
                 <a href="/projecten<?php echo $project->canonical; ?>" class="button">Lees meer</a>
             </div>
             <?php
+            if ($i == 2) {
+                echo '<div class="clear"></div>';
+            }
+            $i++;
         }
         ?>
         <div class="clear"></div>
