@@ -8,7 +8,14 @@
         <?= $this->leftColNav; ?>
     </div>
     <div id="right_column">
-        <img src="/img/projects/<?= $this->projectinfo->img; ?>" alt="<?= $this->projectinfo->title; ?>" title="<?= $this->projectinfo->title; ?>" class="main" />
+        <a href="/img/projects/<?= $this->projectinfo->img; ?>" class="lightbox">
+            <img src="/img/projects/<?= $this->projectinfo->img; ?>" alt="<?= $this->projectinfo->title; ?>" title="<?= $this->projectinfo->title; ?>" class="main" />
+        </a>
+        <script type="text/javascript">
+            $(function() {
+                $('a.lightbox').lightBox();
+            });
+        </script>
         <?= $this->projectinfo->descr; ?>
     </div>
 </div>

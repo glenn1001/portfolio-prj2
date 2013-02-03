@@ -6,12 +6,16 @@
         <?= $this->headMeta(); ?>
 
 
-        <?= $this->headLink()->appendStylesheet('/css/style.css'); ?>
+        <?=
+        $this->headLink()->appendStylesheet('/css/style.css')
+                ->appendStylesheet('/plugins/jquery/lightbox/css/jquery.lightbox-0.5.css');
+        ?>
 
 
-        <?
-        echo $this->headScript()->appendFile('/plugins/jquery/jquery-1.8.3.js')
+        <?=
+        $this->headScript()->appendFile('/plugins/jquery/jquery-1.8.3.js')
                 ->appendFile('/plugins/jquery/jquery.cycle.all.js')
+                ->appendFile('/plugins/jquery/lightbox/js/jquery.lightbox-0.5.js')
                 ->appendFile('/js/main.js');
         ?>
 
@@ -22,16 +26,16 @@
                 <div id="header_inner">
                     <p>Portfolio - Glenn Blom</p>
                     <div id="nav">
-                        <?= $this->navigation(); ?>
+<?= $this->navigation(); ?>
                     </div>
                     <div id="search">
-                        <?= $this->searchForm; ?>
+<?= $this->searchForm; ?>
                     </div>
                 </div>
             </div>
             <div class="clear"></div>
             <div id="content_outer">
-                <?= $this->layout()->content; ?>
+<?= $this->layout()->content; ?>
                 <div class="clear"></div>
             </div>
             <div class="clear"></div>
@@ -40,29 +44,29 @@
                     <div>
                         <h3>Laatste 10 projecten</h3>
                         <ul>
-                            <? foreach ($this->footerProjects as $project) { ?>
-                            <li>
-                                <a href="/projecten<?= $project->canonical; ?>"><?= $project->title; ?></a>
-                            </li>
-                            <? } ?>
+<? foreach ($this->footerProjects as $project) { ?>
+                                <li>
+                                    <a href="/projecten<?= $project->canonical; ?>"><?= $project->title; ?></a>
+                                </li>
+<? } ?>
                         </ul>
                     </div>
                     <div>
                         <h3>Social media</h3>
                         <ul class="social-media">
-                            <? foreach ($this->social as $social) { ?>
-                            <li>
-                                <a href="<?= $social->url; ?>" target="_blank">
-                                    <img src="/img/social-media/<?= $social->icon; ?>" alt="<?= $social->title; ?>" title="<?= $social->title; ?>" />
-                                    <?= $social->title; ?>
-                                </a>
-                            </li>
-                            <? } ?>
+<? foreach ($this->social as $social) { ?>
+                                <li>
+                                    <a href="<?= $social->url; ?>" target="_blank">
+                                        <img src="/img/social-media/<?= $social->icon; ?>" alt="<?= $social->title; ?>" title="<?= $social->title; ?>" />
+    <?= $social->title; ?>
+                                    </a>
+                                </li>
+<? } ?>
                         </ul>
                     </div>
                     <div class="contact">
                         <h3>Neem contact op</h3>
-                        <?= $this->contactform; ?>
+<?= $this->contactform; ?>
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -71,6 +75,6 @@
 
         <? if (isset($this->contactSuccess)) { ?>
             <script type="text/javascript">alert('<?= $this->contactSuccess; ?>');</script>
-        <? } ?>
+<? } ?>
     </body>
 </html>

@@ -15,6 +15,10 @@ p {
     margin: 0 0 15px;
 }
 
+img {
+    border: none !important;
+}
+
 input[type="submit"], a.button, button {
     background: #3C99DC;
     background: -webkit-gradient(linear, left top, left bottom, from(#185988), to(#3C99DC));
@@ -105,7 +109,7 @@ div#nav {
     top: 20px;
     float: left;
     width: auto;
-    z-index: 110;
+    z-index: 80;
     font-size: 19px;
 }
 
@@ -258,7 +262,8 @@ div#right_column img.main {
 }
 
 div#right_column img.screenshot {
-    width: 220px;
+    width: 200px;
+    margin: 0 5px;
 }
 
 div#content_inner a {
