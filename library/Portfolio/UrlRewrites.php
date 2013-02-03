@@ -4,13 +4,16 @@ class Portfolio_UrlRewrites {
 
     private $_dbTableUrlRewrite;
     private $_dbTableUrlRewriteParameter;
-    private $_truncate = true;
 
     public function __construct() {
         $this->_dbTableUrlRewrite = new Default_Model_DbTable_UrlRewrite();
         $this->_dbTableUrlRewriteParameter = new Default_Model_DbTable_UrlRewriteParameter();
     }
 
+    
+    /**
+     * Start generating new URL rewrites 
+     */
     public function rewrite() {
         $this->clearDatabase();
         $this->generateOtherUrls();
@@ -18,11 +21,17 @@ class Portfolio_UrlRewrites {
         $this->generatePageUrls();
     }
 
+    /**
+     * Delete all generated URL rewrites
+     */
     private function clearDatabase() {
         $this->_dbTableUrlRewrite->delete("`generated`='Y'");
         $this->_dbTableUrlRewriteParameter->delete("`generated`='Y'");
     }
 
+    /**
+     * Generate all SEO URL's for the projects 
+     */
     private function generateProjectUrls() {
         $dbTableProject = new Default_Model_DbTable_Project();
         $this->generateProjectOverviewUrls($dbTableProject);
@@ -48,6 +57,10 @@ class Portfolio_UrlRewrites {
         }
     }
 
+    /**
+     * Generate all SEO URL's for the project overview pages
+     * @param object $dbTableProject The object of the DbTable project
+     */
     private function generateProjectOverviewUrls($dbTableProject) {
         $this->_dbTableUrlRewrite->insert(array(
             'url' => '/projecten/',
@@ -80,6 +93,9 @@ class Portfolio_UrlRewrites {
         }
     }
 
+    /**
+     * Generate all SEO URL's for the pages
+     */
     private function generatePageUrls() {
         $dbTablePage = new Default_Model_DbTable_Page();
         $pages = $dbTablePage->fetchAll();
@@ -104,6 +120,9 @@ class Portfolio_UrlRewrites {
         }
     }
 
+    /**
+     * Generate the URL for the home page
+     */
     private function generateOtherUrls() {
         $this->_dbTableUrlRewrite->insert(array(
             'url' => '/',

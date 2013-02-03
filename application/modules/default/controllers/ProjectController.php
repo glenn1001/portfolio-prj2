@@ -6,9 +6,11 @@ class Default_ProjectController extends Zend_Controller_Action {
     private $_totalPages;
 
     public function indexAction() {
-        $this->_pageId = $this->_getParam('pageid', 1);
+        // Set db table object
         $dbTableProject = new Default_Model_DbTable_Project();
         
+        // Set some variables for paging
+        $this->_pageId = $this->_getParam('pageid', 1);
         $totalProjects = count($dbTableProject->fetchAll("`status`='Y'"));
         $this->_totalPages = ceil($totalProjects / $dbTableProject->projectsPerPage);
         
@@ -16,10 +18,11 @@ class Default_ProjectController extends Zend_Controller_Action {
             $this->redirect('/project/index/pageid/' . $this->_totalPages . '/');
         }
         
+        // Get the projects of this page
         $projects = $dbTableProject->getProjects($this->_pageId);
-        
+
+        // Store variables for the view
         $this->view->projects = $projects;
-        
         $this->view->currentPage = $this->_pageId;
         $this->view->prevPages = $this->getPrevPages();
         $this->view->pages = $this->getPages();
@@ -27,7 +30,7 @@ class Default_ProjectController extends Zend_Controller_Action {
     }
 
     public function viewAction() {
-        // controlleer of er een (project)id meegestuurd word
+        // Check if project id has been set
         $projectid = $this->_getParam('id', false);
         if ($projectid == false) {
             $error = new Zend_Session_Namespace('error');
@@ -63,6 +66,10 @@ class Default_ProjectController extends Zend_Controller_Action {
         $this->view->projectinfo = $project;
     }
     
+    /**
+     * Get previous pages for paging if there are any.
+     * @return array Returns an array which can be used in the view for paging.
+     */
     private function getPrevPages() {
         $pages = array();
         if ($this->_pageId > 1) {
@@ -81,6 +88,10 @@ class Default_ProjectController extends Zend_Controller_Action {
         return $pages;
     }
     
+    /**
+     * Get page numbers and URL's for paging.
+     * @return array Returns an array which can be used in the view for paging.
+     */
     private function getPages() {
         $pages = array();
         $start = $this->_pageId - 2;
@@ -102,6 +113,10 @@ class Default_ProjectController extends Zend_Controller_Action {
         return $pages;
     }
     
+    /**
+     * Get next pages for paging if there are any.
+     * @return array Returns an array which can be used in the view for paging.
+     */
     private function getNextPages() {
         $pages = array();
         if (($this->_pageId + 1) <= $this->_totalPages) {

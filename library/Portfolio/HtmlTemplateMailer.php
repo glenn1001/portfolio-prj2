@@ -41,7 +41,7 @@ class Portfolio_HtmlTemplateMailer extends Zend_Mail {
     }
 
     /**
-     *
+     * Send a mail with a HTML template
      * @param type $template The name of the template file.
      * @param type $encoding
      */

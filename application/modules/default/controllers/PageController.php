@@ -2,12 +2,8 @@
 
 class Default_PageController extends Zend_Controller_Action {
 
-    public function init() {
-        
-    }
-
     public function indexAction() {
-        // controlleer of er een (page)id meegestuurd word
+        // check if a page id has been set
         $pageid = $this->_getParam('id', false);
         if ($pageid == false) {
             $error = new Zend_Session_Namespace('error');
@@ -26,6 +22,7 @@ class Default_PageController extends Zend_Controller_Action {
             $this->_redirect('/page-not-found/');
         }
         
+        // set meta data for page
         $this->view->headTitle($page->title, 'PREPEND');
         if ($page->meta_descr != '') {
             $this->view->headMeta()->appendName('description', $page->meta_descr);

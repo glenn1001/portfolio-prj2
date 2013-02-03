@@ -10,6 +10,9 @@ class Portfolio_GenerateNav {
         '  ' => ' '
     );
 
+    /**
+     * Start to generate a new XML file for the navigation 
+     */
     public function generate() {
         $this->_xml = new DOMDocument('1.0', 'utf-8');
 
@@ -29,6 +32,9 @@ class Portfolio_GenerateNav {
         $this->writeXML($file, $output);
     }
 
+    /**
+     * Add home to the navigation 
+     */
     private function generateNavigationHome() {
         $home = $this->_xml->createElement('home');
 
@@ -49,6 +55,9 @@ class Portfolio_GenerateNav {
         $this->_nav->appendChild($home);
     }
 
+    /**
+     * Add the projects to the navigation 
+     */
     private function generateNavigationProjects() {
         $dbTableProject = new Default_Model_DbTable_Project();
         $projects = $dbTableProject->fetchAll("`status`='Y'  AND `menu`='Y'", 'pos DESC');
@@ -97,6 +106,11 @@ class Portfolio_GenerateNav {
         $this->_nav->appendChild($projectNav);
     }
 
+    /**
+     * Add the pages to the navigation
+     * @param id $parent_id The id of the parent page
+     * @return string Returns a string filled with the pages of the asked parent
+     */
     private function generateNavigationPages($parent_id = 0) {
         $dbTablePage = new Default_Model_DbTable_Page();
         $pages = $dbTablePage->fetchAll("`parent_id`='$parent_id' AND `status`='Y'  AND `menu`='Y'", 'pos ASC');
@@ -146,6 +160,11 @@ class Portfolio_GenerateNav {
         }
     }
 
+    /**
+     * Write the navigation in an XML file
+     * @param string $file The file location followed by the file name
+     * @param string $output A string filled with XML for the navigation
+     */
     private function writeXML($file, $output) {
         $file = fopen($file, 'w');
         fwrite($file, $output);
