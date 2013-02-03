@@ -7,6 +7,7 @@ class Plugin_Navigation extends Zend_Controller_Plugin_Abstract {
     private $_url;
     private $_skill_pageid = 1;
     private $_cv_pageid = 3;
+    private $_work_pageid = 15;
     
     protected $_request;
 
@@ -43,6 +44,9 @@ class Plugin_Navigation extends Zend_Controller_Plugin_Abstract {
                 break;
             case strstr($this->_url, 'cv'):
                 $this->_view->leftColNav = $this->getPages($this->_cv_pageid);
+                break;
+            case strstr($this->_url, 'werkzaamheden'):
+                $this->_view->leftColNav = $this->getPages($this->_work_pageid);
                 break;
             case strstr($this->_url, 'project'):
                 $this->_view->leftColNav = $this->getProjects();
