@@ -138,19 +138,21 @@ class Plugin_Navigation extends Zend_Controller_Plugin_Abstract {
             $nav = '<ul>';
         }
         
-        foreach ($data as $array) {
-            $nav .= '<li>';
-            if ($this->_url == $array['item']->canonical) {
-                $nav .= '<a href="' . $array['item']->canonical . '" class="active">' . $array['item']->title . '</a>';
-            } else {
-                $nav .= '<a href="' . $array['item']->canonical . '">' . $array['item']->title . '</a>';
-            }
+        if (is_array($data)) {
+            foreach ($data as $array) {
+                $nav .= '<li>';
+                if ($this->_url == $array['item']->canonical) {
+                    $nav .= '<a href="' . $array['item']->canonical . '" class="active">' . $array['item']->title . '</a>';
+                } else {
+                    $nav .= '<a href="' . $array['item']->canonical . '">' . $array['item']->title . '</a>';
+                }
 
-            // check if this item has any children
-            if (is_array($array['children'])) {
-                $nav .= $this->formatNav($array['children']);
+                // check if this item has any children
+                if (is_array($array['children'])) {
+                    $nav .= $this->formatNav($array['children']);
+                }
+                $nav .= '</li>';
             }
-            $nav .= '</li>';
         }
         $nav .= '</ul>';
 
