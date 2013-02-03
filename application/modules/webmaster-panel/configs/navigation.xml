@@ -46,24 +46,6 @@
             <privilege>index</privilege>
         </page>
         
-        <url>
-            <label>URL rewrites</label>
-            <module>webmaster-panel</module>
-            <controller>url</controller>
-            <action>index</action>
-            <resource>webmaster-panel:url</resource>
-            <privilege>index</privilege>
-        </url>
-        
-        <xml>
-            <label>Generate XML</label>
-            <module>webmaster-panel</module>
-            <controller>xml</controller>
-            <action>index</action>
-            <resource>webmaster-panel:xml</resource>
-            <privilege>index</privilege>
-        </xml>
-        
         <logout>
             <label>Logout</label>
             <module>webmaster-panel</module>

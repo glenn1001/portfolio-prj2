@@ -38,6 +38,13 @@ class WebmasterPanel_PageController extends Zend_Controller_Action {
                 }
 
                 $dbTablePage->insert($data);
+                
+                $rewrite = new Portfolio_UrlRewrites();
+                $rewrite->rewrite();
+                
+                $generate = new Portfolio_GenerateNav();
+                $generate->generate();
+                
                 $this->_redirect('/webmaster-panel/page/');
             }
         }
@@ -75,6 +82,13 @@ class WebmasterPanel_PageController extends Zend_Controller_Action {
 
                 $dbTablePage = new Default_Model_DbTable_Page();
                 $dbTablePage->update($data, "`id`='$pageid'");
+                
+                $rewrite = new Portfolio_UrlRewrites();
+                $rewrite->rewrite();
+                
+                $generate = new Portfolio_GenerateNav();
+                $generate->generate();
+                
                 $this->_redirect('/webmaster-panel/page/');
             }
         }
@@ -90,6 +104,12 @@ class WebmasterPanel_PageController extends Zend_Controller_Action {
                 }
             }
         }
+        
+        $rewrite = new Portfolio_UrlRewrites();
+        $rewrite->rewrite();
+        
+        $generate = new Portfolio_GenerateNav();
+        $generate->generate();
 
         $this->_redirect('/webmaster-panel/page/');
     }
@@ -105,6 +125,9 @@ class WebmasterPanel_PageController extends Zend_Controller_Action {
                         ), 'id = ' . $key);
             }
         }
+        
+        $generate = new Portfolio_GenerateNav();
+        $generate->generate();
 
         $this->_redirect('/webmaster-panel/page/');
     }

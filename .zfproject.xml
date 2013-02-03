@@ -142,14 +142,6 @@
               <actionMethod actionName="delete"/>
               <actionMethod actionName="update"/>
             </controllerFile>
-            <controllerFile controllerName="Url">
-              <actionMethod actionName="index"/>
-              <actionMethod actionName="generate"/>
-            </controllerFile>
-            <controllerFile controllerName="Xml">
-              <actionMethod actionName="index"/>
-              <actionMethod actionName="generateNavigation"/>
-            </controllerFile>
             <controllerFile controllerName="Slideshow">
               <actionMethod actionName="index"/>
               <actionMethod actionName="create"/>
@@ -213,18 +205,6 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Project">
                 <viewScriptFile forActionName="update"/>
-              </viewControllerScriptsDirectory>
-              <viewControllerScriptsDirectory forControllerName="Url">
-                <viewScriptFile forActionName="index"/>
-              </viewControllerScriptsDirectory>
-              <viewControllerScriptsDirectory forControllerName="Url">
-                <viewScriptFile forActionName="generate"/>
-              </viewControllerScriptsDirectory>
-              <viewControllerScriptsDirectory forControllerName="Xml">
-                <viewScriptFile forActionName="index"/>
-              </viewControllerScriptsDirectory>
-              <viewControllerScriptsDirectory forControllerName="Xml">
-                <viewScriptFile forActionName="generateNavigation"/>
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Slideshow">
                 <viewScriptFile forActionName="index"/>

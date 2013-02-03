@@ -36,6 +36,13 @@ class WebmasterPanel_ProjectController extends Zend_Controller_Action {
                 }
 
                 $dbTableProject->insert($data);
+                
+                $rewrite = new Portfolio_UrlRewrites();
+                $rewrite->rewrite();
+                
+                $generate = new Portfolio_GenerateNav();
+                $generate->generate();
+                
                 $this->_redirect('/webmaster-panel/project/');
             }
         }
@@ -71,6 +78,13 @@ class WebmasterPanel_ProjectController extends Zend_Controller_Action {
 
                 $dbTableProject = new Default_Model_DbTable_Project();
                 $dbTableProject->update($data, "`id`='$projectid'");
+                
+                $rewrite = new Portfolio_UrlRewrites();
+                $rewrite->rewrite();
+                
+                $generate = new Portfolio_GenerateNav();
+                $generate->generate();
+                
                 $this->_redirect('/webmaster-panel/project/');
             }
         }
@@ -86,6 +100,12 @@ class WebmasterPanel_ProjectController extends Zend_Controller_Action {
                 }
             }
         }
+        
+        $rewrite = new Portfolio_UrlRewrites();
+        $rewrite->rewrite();
+        
+        $generate = new Portfolio_GenerateNav();
+        $generate->generate();
 
         $this->_redirect('/webmaster-panel/project/');
     }
@@ -101,6 +121,9 @@ class WebmasterPanel_ProjectController extends Zend_Controller_Action {
                         ), 'id = ' . $key);
             }
         }
+        
+        $generate = new Portfolio_GenerateNav();
+        $generate->generate();
 
         $this->_redirect('/webmaster-panel/project/');
     }
